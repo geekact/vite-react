@@ -5,5 +5,5 @@ npx tsc
 mv ./build/src/ ./lib
 
 cat >> ./lib/index.d.ts <<EOF
-import 'vite/client';
+import './misc/module';
 EOF
