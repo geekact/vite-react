@@ -12,7 +12,7 @@ export interface Config extends UserConfig {
 export type ConfigFn = (env: ConfigEnv) => Config;
 export type ConfigExport = Config | ConfigFn;
 
-export const defineConfig = (config: ConfigExport) => {
+export const defineConfig = (config: ConfigExport = {}) => {
   return origin((env) => {
     return parseConfig(typeof config === 'function' ? config(env) : config, env);
   });
