@@ -2,9 +2,15 @@ import { ConfigEnv, defineConfig as origin, UserConfig } from 'vite';
 import { handleBuild } from './handler/build';
 import { handleCss } from './handler/css';
 import { handleLegacy, OverrideLegacy } from './handler/legacy';
+import { handleMix, OverrideBase } from './handler/mix';
 import { handleReactRefresh, OverrideReactRefresh } from './handler/reactRefresh';
 
-export interface Config extends UserConfig, OverrideReactRefresh, OverrideLegacy {}
+export interface Config extends
+UserConfig,
+OverrideReactRefresh,
+OverrideLegacy,
+OverrideBase
+{}
 
 export type ConfigFn = (env: ConfigEnv) => Config;
 export type ConfigExport = Config | ConfigFn;
@@ -20,6 +26,7 @@ const parseConfig = (config: Config, env: ConfigEnv) => {
   handleLegacy(config, env);
   handleCss(config, env);
   handleBuild(config, env);
+  handleMix(config, env);
 
   return config;
 };
