@@ -16,17 +16,14 @@ export interface OverrideReactRefresh {
   reactRefreshOptions?: ReactRefreshOptions | ((originalOptions: ReactRefreshOptions) => ReactRefreshOptions | undefined);
 }
 
+const defaultOptions: ReactRefreshOptions = {
+  parserPlugins: [],
+};
+
 export const handleReactRefresh = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
   if (enable(config.enableReactRefresh, env, env.command === 'serve')) {
-    const defaultOptions: ReactRefreshOptions = {
-      parserPlugins: [
-        'classProperties',
-        'classPrivateProperties',
-      ],
-    };
-
     config.plugins.push(
       reactRefresh(
         override(config.reactRefreshOptions, defaultOptions)

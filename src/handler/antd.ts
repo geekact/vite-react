@@ -9,7 +9,7 @@ export interface OverrideAntd {
 }
 
 export const handleAntd = (config: Config, _env: ConfigEnv) => {
-  config.plugins ??= [];
+  config.plugins ||= [];
   config.css ||= {};
   const libs: Parameters<typeof styleImport>[0]['libs'] = [];
 

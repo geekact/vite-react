@@ -1,9 +1,8 @@
 import { ConfigEnv } from 'vite';
 import { Config } from '../vite';
 
-export const handleBuild = (config: Config, env: ConfigEnv) => {
+export const handleBuild = (config: Config, _env: ConfigEnv) => {
   config.build ||= {};
-  config.build.outDir ||= `dist/${env.mode}`;
   // Unnecessary to show this and improve build speed.
-  config.build.brotliSize ||= false;
+  config.build.brotliSize ??= false;
 };
