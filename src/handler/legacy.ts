@@ -2,16 +2,17 @@ import { ConfigEnv } from 'vite';
 import { Config } from '../vite';
 import legacy, { Options as LegacyOptions } from '@vitejs/plugin-legacy';
 import { override } from '../util/override';
+import { enable } from '../util/enable';
 
 export interface OverrideLegacy {
-  enableLegacy?: (env: ConfigEnv) => boolean;
-  legacyOptions?: (originalOptions: LegacyOptions) => LegacyOptions | undefined;
+  enableLegacy?: boolean | ((env: ConfigEnv) => boolean);
+  legacyOptions?: LegacyOptions | ((originalOptions: LegacyOptions) => LegacyOptions | undefined);
 }
 
 export const handleLegacy = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
-  if (config.enableLegacy && config.enableLegacy(env)) {
+  if (enable(config.enableLegacy, env, false)) {
     config.plugins.push(legacy(
       override(config.legacyOptions, {})
     ));
