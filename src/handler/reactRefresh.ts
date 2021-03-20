@@ -5,6 +5,13 @@ import { Config } from '../vite';
 import { enable } from '../util/enable';
 
 export interface OverrideReactRefresh {
+  /**
+   * enable Hot Module Reload.
+   *
+   *
+   * @default true for serve.
+   * @default false for build.
+   */
   enableReactRefresh?: boolean | ((env: ConfigEnv) => boolean);
   reactRefreshOptions?: ReactRefreshOptions | ((originalOptions: ReactRefreshOptions) => ReactRefreshOptions | undefined);
 }
