@@ -9,7 +9,7 @@ export interface OverrideLegacy {
    * For browsers which doesn't support es module.
    *
    * @see https://caniuse.com/es6-module
-   * @default false
+   * @default true for build
    */
   enableLegacy?: boolean | ((env: ConfigEnv) => boolean);
   legacyOptions?: LegacyOptions | ((originalOptions: LegacyOptions) => LegacyOptions | undefined);
@@ -18,7 +18,7 @@ export interface OverrideLegacy {
 export const handleLegacy = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
-  if (enable(config.enableLegacy, env, false)) {
+  if (enable(config.enableLegacy, env, env.command === 'build')) {
     config.plugins.push(legacy(
       override(config.legacyOptions, {})
     ));
