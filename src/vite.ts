@@ -1,11 +1,12 @@
 import { ConfigEnv, defineConfig as origin, UserConfig } from 'vite';
 import { handleBuild } from './handler/build';
-import { handleCss } from './handler/css';
+import { handleCss, OverrideStyleImport } from './handler/css';
 import { handleLegacy, OverrideLegacy } from './handler/legacy';
 import { handleMix, OverrideBase } from './handler/mix';
 import { handleReactRefresh, OverrideReactRefresh } from './handler/reactRefresh';
 
 export interface Config extends
+OverrideStyleImport,
 OverrideBase,
 OverrideReactRefresh,
 OverrideLegacy,
