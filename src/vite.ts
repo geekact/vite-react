@@ -6,10 +6,10 @@ import { handleMix, OverrideBase } from './handler/mix';
 import { handleReactRefresh, OverrideReactRefresh } from './handler/reactRefresh';
 
 export interface Config extends
-UserConfig,
+OverrideBase,
 OverrideReactRefresh,
 OverrideLegacy,
-OverrideBase
+UserConfig
 {}
 
 export type ConfigFn = (env: ConfigEnv) => Config;
