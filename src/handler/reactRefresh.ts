@@ -1,21 +1,21 @@
-import { ConfigEnv, UserConfig } from 'vite';
-import { Override } from '../vite';
+import { ConfigEnv } from 'vite';
 import reactRefresh, { Options as ReactRefreshOptions } from '@vitejs/plugin-react-refresh';
 import { override } from '../util/override';
+import { Config } from '../vite';
 
 export interface OverrideReactRefresh {
   enableReactRefresh?: (env: ConfigEnv) => boolean;
-  reactRefresh?: (original: ReactRefreshOptions) => ReactRefreshOptions | undefined;
+  reactRefreshOptions?: (originalOptions: ReactRefreshOptions) => ReactRefreshOptions | undefined;
 }
 
 const defaultEnableFn = (env: ConfigEnv) => {
   return env.command === 'serve';
 };
 
-export const handleReactRefresh = (config: UserConfig, overrides: Override = {}, env: ConfigEnv) => {
+export const handleReactRefresh = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
-  if ((overrides.enableReactRefresh || defaultEnableFn)(env)) {
+  if ((config.enableReactRefresh || defaultEnableFn)(env)) {
     const defaultOptions: ReactRefreshOptions = {
       parserPlugins: [
         'classProperties',
@@ -25,7 +25,7 @@ export const handleReactRefresh = (config: UserConfig, overrides: Override = {},
 
     config.plugins.push(
       reactRefresh(
-        override(overrides.reactRefresh, defaultOptions)
+        override(config.reactRefreshOptions, defaultOptions)
       )
     );
   }

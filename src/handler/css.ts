@@ -1,6 +1,7 @@
-import { UserConfig, ConfigEnv } from 'vite';
+import { ConfigEnv } from 'vite';
+import { Config } from '../vite';
 
-export const handleCss = (config: UserConfig, env: ConfigEnv) => {
+export const handleCss = (config: Config, env: ConfigEnv) => {
   config.css ||= {};
   config.css.modules ||= {};
 
