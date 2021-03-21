@@ -47,9 +47,9 @@ yarn add vite-react
 #### vite.config.ts
 ```diff
 - import { defineConfig } from 'vite';
++ import { defineConfig } from 'vite-react';
 - import legacy from '@vitejs/plugin-legacy';
 - import reactRefresh from '@vitejs/plugin-react-refresh';
-+ import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
