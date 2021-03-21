@@ -57,3 +57,56 @@ export default defineConfig({
   ...
 });
 ```
+
+# Feature
+#### HMR
+We builtin recommended plugin `@vitejs/plugin-react-refresh` and is enabled for `serve` command by default.
+
+#### Legacy support
+We builtin recommended plugin `@vitejs/plugin-legacy` and is enabled by default.
+
+#### Antd
+`antd` and `antd-mobile` component style will be imported dynamically.
+```typescript
+// Your code
+import { Button, Table } from 'antd';
+
+// Transform code by vite
+import { Button, Table } from 'antd';
+import 'antd/es/button/style/index';
+import 'antd/es/table/style/index';
+```
+
+# Extend Options
+#### antdTheme
+Type: `object`. Default: `{}`
+
+The less variables from [antd](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) you can override.
+
+```typescript
+{
+  antdTheme: {
+    '@body-background': '#ff0000',
+    '@font-size-sm': '13px',
+  }
+}
+```
+
+#### antdMobileTheme
+Type: `object`. Default: `{}`
+
+The less variables from [antd-mobile](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less) you can override.
+
+```typescript
+{
+  antdMobileTheme: {
+    '@color-text-base': '#ff0000',
+  }
+}
+```
+
+#### enableLegacy
+Type: `boolean` | `(env) => boolean`. Default: `true`
+
+#### enableReactRefresh
+Type: `boolean` | `(env) => boolean`. Default: `true` for serve, `false` for build
