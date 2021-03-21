@@ -1,5 +1,5 @@
 # vite-react
-
+
 [Vite](https://github.com/vitejs/vite) based tooling for react explicitly.
 
 # Installation
