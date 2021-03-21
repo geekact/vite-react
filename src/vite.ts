@@ -3,12 +3,12 @@ import { handleAntd, OverrideAntd } from './handler/antd';
 import { handleBuild } from './handler/build';
 import { handleCss } from './handler/css';
 import { handleLegacy, OverrideLegacy } from './handler/legacy';
-import { handleMix, OverrideBase } from './handler/mix';
+import { handleMix, OverrideMix } from './handler/mix';
 import { handleReactRefresh, OverrideReactRefresh } from './handler/reactRefresh';
 
 export interface Config extends
 OverrideAntd,
-OverrideBase,
+OverrideMix,
 OverrideReactRefresh,
 OverrideLegacy,
 UserConfig
