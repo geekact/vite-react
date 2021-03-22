@@ -5,6 +5,7 @@ import { handleCss } from './handler/css';
 import { handleLegacy, OverrideLegacy } from './handler/legacy';
 import { handleMix, OverrideMix } from './handler/mix';
 import { handleReactRefresh, OverrideReactRefresh } from './handler/reactRefresh';
+import { handleServer } from './handler/server';
 
 export interface Config extends
 OverrideAntd,
@@ -30,6 +31,7 @@ const parseConfig = (config: Config, env: ConfigEnv) => {
   handleAntd(config, env);
   handleBuild(config, env);
   handleMix(config, env);
+  handleServer(config, env);
 
   return config;
 };
