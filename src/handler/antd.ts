@@ -4,7 +4,13 @@ import { hasInstallPackage } from '../util/pkgInfo';
 import { Config } from '../vite';
 
 export interface OverrideAntd {
+  /**
+   * @see node_modules/antd/es/style/themes/default.less
+   */
   antdTheme?: object;
+  /**
+   * @see node_modules/antd-mobile/es/style/themes/default.less
+   */
   antdMobileTheme?: object;
 }
 
