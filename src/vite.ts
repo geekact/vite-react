@@ -2,6 +2,7 @@ import { ConfigEnv, defineConfig as origin, UserConfig } from 'vite';
 import { handleAntd, OverrideAntd } from './handler/antd';
 import { handleBuild } from './handler/build';
 import { handleCss } from './handler/css';
+import { handleHtml, OverrideHtml } from './handler/html';
 import { handleLegacy, OverrideLegacy } from './handler/legacy';
 import { handleMix, OverrideMix } from './handler/mix';
 import { handleReactRefresh, OverrideReactRefresh } from './handler/reactRefresh';
@@ -12,6 +13,7 @@ OverrideAntd,
 OverrideMix,
 OverrideReactRefresh,
 OverrideLegacy,
+OverrideHtml,
 UserConfig
 {}
 
@@ -32,6 +34,7 @@ const parseConfig = (config: Config, env: ConfigEnv) => {
   handleBuild(config, env);
   handleMix(config, env);
   handleServer(config, env);
+  handleHtml(config, env);
 
   return config;
 };

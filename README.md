@@ -120,3 +120,31 @@ Type: `boolean` | `(env) => boolean`. Default: `true` for serve, `false` for bui
 
 #### reactRefresh.options
 Type: `object` | `(options, env) => options | undefined`.
+
+#### html.minify
+Type: `boolean` | `(env) => boolean`. Default: `true` for build
+
+#### html.injectData
+Type: `object`. Default: `{}`
+
+Inject custom data into html:
+```typescript
+{
+  html: {
+    injectData: {
+      hello: 'world',
+      now: Date.now(),
+    }
+  }
+}
+```
+And in html file:
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="test" content="<%=hello%>" />
+    <meta name="deploy-time" content="<%=now%>" />
+  </head>
+</html>
+```
