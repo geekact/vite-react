@@ -27,6 +27,6 @@ export const handleHtml = (config: Config, env: ConfigEnv) => {
   const injectData = config.html?.injectData;
 
   if (injectData && Object.keys(injectData).length) {
-    config.plugins.push(injectHtml(injectData));
+    config.plugins.push(injectHtml({ injectData }));
   }
 };
