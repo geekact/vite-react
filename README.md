@@ -60,12 +60,12 @@ export default defineConfig({
 
 # Feature
 #### HMR
-We builtin recommended plugin `@vitejs/plugin-react-refresh` and is enabled for `serve` command by default.
+Recommended plugin `@vitejs/plugin-react-refresh` is builtin.
 
-#### Legacy support
-We builtin recommended plugin `@vitejs/plugin-legacy` and is enabled by default.
+#### Legacy
+Recommended plugin `@vitejs/plugin-legacy` is builtin.
 
-#### Antd
+#### Antd style
 `antd` and `antd-mobile` component style will be imported dynamically.
 ```typescript
 // Your code
@@ -78,35 +78,45 @@ import 'antd/es/table/style/index';
 ```
 
 # Extend Options
-#### antdTheme
+#### antd.theme
 Type: `object`. Default: `{}`
 
 The less variables from [antd](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) you can override.
 
 ```typescript
 {
-  antdTheme: {
-    '@body-background': '#ff0000',
-    '@font-size-sm': '13px',
+  antd: {
+    theme: {
+      '@body-background': '#ff0000',
+      '@font-size-sm': '13px',
+    }
   }
 }
 ```
 
-#### antdMobileTheme
+#### antdMobile.theme
 Type: `object`. Default: `{}`
 
 The less variables from [antd-mobile](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less) you can override.
 
 ```typescript
 {
-  antdMobileTheme: {
-    '@color-text-base': '#ff0000',
+  antdMobile: {
+    theme: {
+      '@color-text-base': '#ff0000',
+    }
   }
 }
 ```
 
-#### enableLegacy
+#### legacy.enable
 Type: `boolean` | `(env) => boolean`. Default: `true`
 
-#### enableReactRefresh
+#### legacy.options
+Type: `object` | `(options, env) => options | undefined`.
+
+#### reactRefresh.enable
 Type: `boolean` | `(env) => boolean`. Default: `true` for serve, `false` for build
+
+#### reactRefresh.options
+Type: `object` | `(options, env) => options | undefined`.

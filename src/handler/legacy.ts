@@ -6,21 +6,24 @@ import { enable } from '../util/enable';
 
 export interface OverrideLegacy {
   /**
-   * For browsers which doesn't support es module.
-   *
+   * For browsers which doesn't support es module by use @vitejs/plugin-legacy.
    * @see https://caniuse.com/es6-module
-   * @default true for build
    */
-  enableLegacy?: boolean | ((env: ConfigEnv) => boolean);
-  legacyOptions?: LegacyOptions | ((originalOptions: LegacyOptions) => LegacyOptions | undefined);
+  legacy?: {
+    /**
+     * @default true for build
+     */
+    enable?: boolean | ((env: ConfigEnv) => boolean);
+    options?: LegacyOptions | ((originalOptions: LegacyOptions, env: ConfigEnv) => LegacyOptions | undefined);
+  }
 }
 
 export const handleLegacy = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
-  if (enable(config.enableLegacy, env, env.command === 'build')) {
+  if (enable(config.legacy?.enable, env, env.command === 'build')) {
     config.plugins.push(legacy(
-      override(config.legacyOptions, {})
+      override(config.legacy?.options, env, {})
     ));
   }
 };

@@ -5,15 +5,16 @@ import { Config } from '../vite';
 import { enable } from '../util/enable';
 
 export interface OverrideReactRefresh {
-  /**
-   * enable Hot Module Reload.
-   *
-   *
-   * @default true for serve.
-   * @default false for build.
-   */
-  enableReactRefresh?: boolean | ((env: ConfigEnv) => boolean);
-  reactRefreshOptions?: ReactRefreshOptions | ((originalOptions: ReactRefreshOptions) => ReactRefreshOptions | undefined);
+  reactRefresh?: {
+    /**
+     * enable Hot Module Reload by use @vitejs/plugin-react-refresh.
+     *
+     * @default true for serve.
+     * @default false for build.
+     */
+    enable?: boolean | ((env: ConfigEnv) => boolean);
+    options?: ReactRefreshOptions | ((originalOptions: ReactRefreshOptions, env: ConfigEnv) => ReactRefreshOptions | undefined);
+  }
 }
 
 const defaultOptions: ReactRefreshOptions = {
@@ -23,10 +24,10 @@ const defaultOptions: ReactRefreshOptions = {
 export const handleReactRefresh = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
-  if (enable(config.enableReactRefresh, env, env.command === 'serve')) {
+  if (enable(config.reactRefresh?.enable, env, env.command === 'serve')) {
     config.plugins.push(
       reactRefresh(
-        override(config.reactRefreshOptions, defaultOptions)
+        override(config.reactRefresh?.options, env, defaultOptions)
       )
     );
   }

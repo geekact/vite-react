@@ -4,14 +4,18 @@ import { hasInstallPackage } from '../util/pkgInfo';
 import { Config } from '../vite';
 
 export interface OverrideAntd {
-  /**
-   * @see node_modules/antd/es/style/themes/default.less
-   */
-  antdTheme?: object;
-  /**
-   * @see node_modules/antd-mobile/es/style/themes/default.less
-   */
-  antdMobileTheme?: object;
+  antd?: {
+    /**
+     * @see node_modules/antd/es/style/themes/default.less
+     */
+    theme?: object;
+  };
+  antdMobile?: {
+    /**
+     * @see node_modules/antd-mobile/es/style/themes/default.less
+     */
+    theme?: object;
+  }
 }
 
 export const handleAntd = (config: Config, _env: ConfigEnv) => {
@@ -23,7 +27,7 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
     config.css.preprocessorOptions ??= {};
     config.css.preprocessorOptions.less = {
       javascriptEnabled: true,
-      modifyVars: config.antdTheme,
+      modifyVars: config.antd?.theme,
     };
 
     libs.push({
@@ -37,7 +41,7 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
     config.css.preprocessorOptions ??= {};
     config.css.preprocessorOptions.less = {
       javascriptEnabled: true,
-      modifyVars: config.antdMobileTheme,
+      modifyVars: config.antdMobile?.theme,
     };
 
     libs.push({
