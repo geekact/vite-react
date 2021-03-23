@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-string_modules='md avi swf wma wmv mpg mpeg mov'
+string_modules='md avi swf wma wmv mpg mpeg mov pdf xsl xslx doc docx ppt pptx zip rar tar gz gz2'
 
 cat > ./src/misc/module.d.ts <<EOF
 /**

@@ -42,3 +42,63 @@ declare module '*.mov' {
   const content: string;
   export = content;
 }
+
+declare module '*.pdf' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.xsl' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.xslx' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.doc' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.docx' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.ppt' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.pptx' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.zip' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.rar' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.tar' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.gz' {
+  const content: string;
+  export = content;
+}
+
+declare module '*.gz2' {
+  const content: string;
+  export = content;
+}
