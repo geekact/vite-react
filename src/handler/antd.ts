@@ -1,5 +1,6 @@
 import { ConfigEnv } from 'vite';
-import styleImport from 'vite-plugin-style-import';
+import styleImport from 'vite-plugin-imp';
+import { libItem } from 'vite-plugin-imp/dist/shared';
 import { hasInstallPackage } from '../util/pkgInfo';
 import { Config } from '../vite';
 
@@ -21,7 +22,7 @@ export interface OverrideAntd {
 export const handleAntd = (config: Config, _env: ConfigEnv) => {
   config.plugins ||= [];
   config.css ||= {};
-  const libs: Parameters<typeof styleImport>[0]['libs'] = [];
+  const libs: libItem[] = [];
 
   if (hasInstallPackage('antd')) {
     config.css.preprocessorOptions ??= {};
@@ -31,9 +32,8 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
     };
 
     libs.push({
-      libraryName: 'antd',
-      esModule: true,
-      resolveStyle: (name) => `antd/es/${name}/style/index`,
+      libName: 'antd',
+      style: (name) => `antd/es/${name}/style/index`,
     });
   }
 
@@ -45,13 +45,12 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
     };
 
     libs.push({
-      libraryName: 'antd-mobile',
-      esModule: true,
-      resolveStyle: (name) => `antd-mobile/es/${name}/style/index`,
+      libName: 'antd-mobile',
+      style: (name) => `antd-mobile/es/${name}/style/index`,
     });
   }
 
   if (libs.length) {
-    config.plugins.push(styleImport({ libs }));
+    config.plugins.push(styleImport({ libList: libs }));
   }
 }
