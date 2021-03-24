@@ -4,7 +4,7 @@
 
 # Installation
 ```bash
-yarn add vite-react
+yarn add vite-react --dev
 ```
 
 # Migrate from vite
@@ -151,4 +151,4 @@ And in html file:
 
 # Tips:
 * For css-modules, you'd better install extension `clinyong.vscode-css-modules` to make vscode happy.
-* Install `lodash-es` instead of `lodash` in favor of tree-shaking.
+* Consider to install `lodash-es` instead of `lodash` in favor of tree-shaking.
