@@ -67,7 +67,7 @@ Recommended plugin `@vitejs/plugin-react-refresh` is builtin.
 Recommended plugin `@vitejs/plugin-legacy` is builtin.
 
 #### CSS preprocessor
-Recommended plugins `scss`, `less`, `stylus` and `postcss` is builtin.
+Recommended plugins `scss`, `less` and `postcss` is builtin.
 
 #### {JS|TS} lint
 Third plugin `vite-plugin-eslint` is builtin, feel free to focus on your rules.
