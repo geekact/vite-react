@@ -116,7 +116,7 @@ Type: `boolean` | `(env) => boolean`. Default: `true`
 Type: `object` | `(options, env) => options | undefined`.
 
 #### reactRefresh.enable
-Type: `boolean` | `(env) => boolean`. Default: `true` for serve, `false` for build
+Type: `boolean` | `(env) => boolean`. Default: `true` for serve
 
 #### reactRefresh.options
 Type: `object` | `(options, env) => options | undefined`.
@@ -148,3 +148,7 @@ And in html file:
   </head>
 </html>
 ```
+
+# Tips:
+* For css-modules, you'd better install extension `clinyong.vscode-css-modules` to make vscode happy.
+* Install `lodash-es` instead of `lodash` in favor of tree-shaking.
