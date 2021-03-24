@@ -22,15 +22,15 @@ export interface OverrideAntd {
 export const handleAntd = (config: Config, _env: ConfigEnv) => {
   config.plugins ||= [];
   config.css ||= {};
+  config.css.preprocessorOptions ||= {};
   const libs: libItem[] = [];
 
   if (hasInstallPackage('antd')) {
-    config.css.preprocessorOptions ??= {};
     config.css.preprocessorOptions.less = {
+      ...config.css.preprocessorOptions.less,
       javascriptEnabled: true,
       modifyVars: config.antd?.theme,
     };
-
     libs.push({
       libName: 'antd',
       style: (name) => `antd/es/${name}/style/index`,
@@ -38,12 +38,11 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
   }
 
   if (hasInstallPackage('antd-mobile')) {
-    config.css.preprocessorOptions ??= {};
     config.css.preprocessorOptions.less = {
+      ...config.css.preprocessorOptions.less,
       javascriptEnabled: true,
       modifyVars: config.antdMobile?.theme,
     };
-
     libs.push({
       libName: 'antd-mobile',
       style: (name) => `antd-mobile/es/${name}/style/index`,
