@@ -25,7 +25,6 @@ yarn add vite-react --dev
 -   "@vitejs/plugin-react-refresh": "x.y.z",
 -   "less": "x.y.z",
 -   "sass": "x.y.z",
--   "stylus": "x.y.z",
 -   "vite": "x.y.z",
 +   "vite-react": "x.y.z",
     ...
