@@ -25,7 +25,7 @@
     "vite": "^2.1.2",
     "vite-plugin-eslint": "^1.1.0",
     "vite-plugin-html": "^2.0.3",
-    "vite-plugin-imp": "^2.0.4"
+    "vite-plugin-style-import": "^0.8.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.35",

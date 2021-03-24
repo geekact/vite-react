@@ -1,6 +1,5 @@
 import { ConfigEnv } from 'vite';
-import styleImport from 'vite-plugin-imp';
-import { libItem } from 'vite-plugin-imp/dist/shared';
+import styleImport from 'vite-plugin-style-import';
 import { hasInstallPackage } from '../util/pkgInfo';
 import { Config } from '../vite';
 
@@ -23,7 +22,7 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
   config.plugins ||= [];
   config.css ||= {};
   config.css.preprocessorOptions ||= {};
-  const libs: libItem[] = [];
+  const libs: Parameters<typeof styleImport>[0]['libs'] = [];
 
   if (hasInstallPackage('antd')) {
     config.css.preprocessorOptions.less = {
@@ -32,8 +31,9 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
       modifyVars: config.antd?.theme,
     };
     libs.push({
-      libName: 'antd',
-      style: (name) => `antd/es/${name}/style/index`,
+      libraryName: 'antd',
+      esModule: true,
+      resolveStyle: (name) => `antd/es/${name}/style/index`,
     });
   }
 
@@ -44,12 +44,13 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
       modifyVars: config.antdMobile?.theme,
     };
     libs.push({
-      libName: 'antd-mobile',
-      style: (name) => `antd-mobile/es/${name}/style/index`,
+      libraryName: 'antd-mobile',
+      esModule: true,
+      resolveStyle: (name) => `antd-mobile/es/${name}/style/index`,
     });
   }
 
   if (libs.length) {
-    config.plugins.push(styleImport({ libList: libs }));
+    config.plugins.push(styleImport({ libs }));
   }
 }
