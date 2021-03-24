@@ -58,12 +58,15 @@ export default defineConfig({
 });
 ```
 
-# Feature
+# Features
 #### HMR
 Recommended plugin `@vitejs/plugin-react-refresh` is builtin.
 
-#### Legacy
+#### Legacy build
 Recommended plugin `@vitejs/plugin-legacy` is builtin.
+
+#### CSS preprocessor
+Recommended plugins `scss`, `less`, `stylus` and `postcss` is builtin.
 
 #### Antd style
 `antd` and `antd-mobile` component style will be imported dynamically.
