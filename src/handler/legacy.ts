@@ -11,7 +11,7 @@ export interface OverrideLegacy {
    */
   legacy?: {
     /**
-     * @default true for build
+     * @default false
      */
     enable?: boolean | ((env: ConfigEnv) => boolean);
     options?: LegacyOptions | ((originalOptions: LegacyOptions, env: ConfigEnv) => LegacyOptions | undefined);
@@ -21,7 +21,7 @@ export interface OverrideLegacy {
 export const handleLegacy = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
-  if (enable(config.legacy?.enable, env, env.command === 'build')) {
+  if (enable(config.legacy?.enable, env, false)) {
     config.plugins.push(legacy(
       override(config.legacy?.options, env, {})
     ));

@@ -25,6 +25,7 @@ yarn add vite-react --dev
 -   "@vitejs/plugin-react-refresh": "x.y.z",
 -   "less": "x.y.z",
 -   "sass": "x.y.z",
+-   "stylus": "x.y.z",
 -   "vite": "x.y.z",
 +   "vite-react": "x.y.z",
     ...
@@ -81,39 +82,9 @@ import 'antd/es/table/style/index';
 ```
 
 # Extend Options
-#### antd.theme
-Type: `object`. Default: `{}`
-
-The less variables from [antd](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) you can override.
-
-```typescript
-{
-  antd: {
-    theme: {
-      '@body-background': '#ff0000',
-      '@font-size-sm': '13px',
-    }
-  }
-}
-```
-
-#### antdMobile.theme
-Type: `object`. Default: `{}`
-
-The less variables from [antd-mobile](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less) you can override.
-
-```typescript
-{
-  antdMobile: {
-    theme: {
-      '@color-text-base': '#ff0000',
-    }
-  }
-}
-```
 
 #### legacy.enable
-Type: `boolean` | `(env) => boolean`. Default: `true`
+Type: `boolean` | `(env) => boolean`. Default: `false`
 
 #### legacy.options
 Type: `object` | `(options, env) => options | undefined`.
@@ -150,6 +121,37 @@ And in html file:
     <meta name="deploy-time" content="<%=now%>" />
   </head>
 </html>
+```
+
+#### antd.theme
+Type: `object`. Default: `{}`
+
+The less variables from [antd](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) you can override.
+
+```typescript
+{
+  antd: {
+    theme: {
+      '@body-background': '#ff0000',
+      '@font-size-sm': '13px',
+    }
+  }
+}
+```
+
+#### antdMobile.theme
+Type: `object`. Default: `{}`
+
+The less variables from [antd-mobile](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less) you can override.
+
+```typescript
+{
+  antdMobile: {
+    theme: {
+      '@color-text-base': '#ff0000',
+    }
+  }
+}
 ```
 
 # Tips:
