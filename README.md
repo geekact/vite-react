@@ -69,6 +69,9 @@ Recommended plugin `@vitejs/plugin-legacy` is builtin.
 #### CSS preprocessor
 Recommended plugins `scss`, `less`, `stylus` and `postcss` is builtin.
 
+#### {JS|TS} lint
+Third plugin `vite-plugin-eslint` is builtin, feel free to focus on your rules.
+
 #### Antd style
 `antd` and `antd-mobile` component style will be imported dynamically.
 ```typescript
@@ -122,6 +125,16 @@ And in html file:
   </head>
 </html>
 ```
+
+#### eslint.enable
+Type: `boolean` | `(env) => boolean`. Default: `false`
+
+A vite plugin to execute eslint rules when serve or build your project.
+
+#### eslinit.options
+Type: `object` | `(options, env) => options | undefined`. Default: `{}`
+
+@see [vite-plugin-eslint](https://github.com/gxmari007/vite-plugin-eslint#options)
 
 #### antd.theme
 Type: `object`. Default: `{}`
