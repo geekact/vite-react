@@ -11,7 +11,8 @@
   "scripts": {
     "prepublishOnly": "sh ./scripts/prepublish.sh",
     "sync": "sh ./scripts/syncRollup.sh",
-    "module": "sh ./scripts/creawteModule.sh"
+    "module": "sh ./scripts/creawteModule.sh",
+    "demo": "sh ./scripts/buildDemo.sh"
   },
   "bin": "./lib/bin/vite-react.js",
   "dependencies": {
