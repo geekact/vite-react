@@ -169,3 +169,4 @@ The less variables from [antd-mobile](https://github.com/ant-design/ant-design-m
 # Tips:
 * For css-modules, you'd better install extension `clinyong.vscode-css-modules` to make vscode happy.
 * Consider to install `lodash-es` instead of `lodash` in favor of tree-shaking.
+* For unsupported extensions, append `?url` or `?raw` to path, such as: `import mydata from '../xx.pdf?url`.

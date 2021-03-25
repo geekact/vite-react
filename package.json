@@ -1,6 +1,6 @@
 {
   "name": "vite-react",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "main": "lib/index.js",
   "repository": "git@github.com:fwh1990/vite-react.git",
   "author": "原•罪",
@@ -11,7 +11,6 @@
   "scripts": {
     "prepublishOnly": "sh ./scripts/prepublish.sh",
     "sync": "sh ./scripts/syncRollup.sh",
-    "module": "sh ./scripts/createModule.sh",
     "demo": "sh ./scripts/buildDemo.sh"
   },
   "bin": "./lib/bin/vite-react.js",
