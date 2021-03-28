@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "vite-react",
-    "build": "vite-react build"
+    "build": "vite-react build",
+    "preview": "vite-react preview"
   },
   "devDependencies": {
     "@types/react": "^17.0.3",
@@ -14,6 +15,7 @@
     "vite-react": "^0.0.27"
   },
   "dependencies": {
+    "antd-mobile": "^2.3.4",
     "react": "16",
     "react-dom": "16"
   }
