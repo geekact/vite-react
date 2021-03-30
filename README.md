@@ -66,10 +66,10 @@ Recommended plugin `@vitejs/plugin-react-refresh` is builtin.
 Recommended plugin `@vitejs/plugin-legacy` is builtin.
 
 #### CSS preprocessor
-Recommended plugins `scss`, `less` and `postcss` is builtin.
+Recommended plugins `scss`, `less` and `postcss` are builtin.
 
 #### {JS|TS} lint
-Third plugin `vite-plugin-eslint` is builtin, feel free to focus on your rules.
+Third plugin `@rollup/plugin-eslint` is builtin, feel free to focus on your rules.
 
 #### Antd style
 `antd` and `antd-mobile` component style will be imported dynamically.
@@ -89,12 +89,6 @@ import 'antd/es/table/style/index';
 Type: `boolean` | `(env) => boolean`. Default: `false`
 
 #### legacy.options
-Type: `object` | `(options, env) => options | undefined`.
-
-#### reactRefresh.enable
-Type: `boolean` | `(env) => boolean`. Default: `true` for serve
-
-#### reactRefresh.options
 Type: `object` | `(options, env) => options | undefined`.
 
 #### html.minify
@@ -133,7 +127,13 @@ A vite plugin to execute eslint rules when serve or build your project.
 #### eslinit.options
 Type: `object` | `(options, env) => options | undefined`. Default: `{}`
 
-@see [vite-plugin-eslint](https://github.com/gxmari007/vite-plugin-eslint#options)
+@see [@rollup/plugin-eslint](https://github.com/rollup/plugins/tree/master/packages/eslint)
+
+#### reactRefresh.enable
+Type: `boolean` | `(env) => boolean`. Default: `true` for serve
+
+#### reactRefresh.options
+Type: `object` | `(options, env) => options | undefined`.
 
 #### antd.theme
 Type: `object`. Default: `{}`
