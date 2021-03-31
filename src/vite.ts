@@ -29,6 +29,11 @@ export const defineConfig = (config: ConfigExport = {}) => {
 };
 
 const parseConfig = (config: Config, env: ConfigEnv) => {
+  /**
+   * Plugin eslint should inject before react-refresh.
+   * @see https://github.com/vitejs/vite/issues/2663
+   */
+  handleEslint(config, env);
   handleReactRefresh(config, env);
   handleLegacy(config, env);
   handleCss(config, env);
@@ -37,7 +42,6 @@ const parseConfig = (config: Config, env: ConfigEnv) => {
   handleMix(config, env);
   handleServer(config, env);
   handleHtml(config, env);
-  handleEslint(config, env);
 
   return config;
 };
