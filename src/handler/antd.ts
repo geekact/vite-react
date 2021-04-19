@@ -10,12 +10,6 @@ export interface OverrideAntd {
      */
     theme?: object;
   };
-  antdMobile?: {
-    /**
-     * @see node_modules/antd-mobile/es/style/themes/default.less
-     */
-    theme?: object;
-  }
 }
 
 export const handleAntd = (config: Config, _env: ConfigEnv) => {
@@ -34,19 +28,6 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
       libraryName: 'antd',
       esModule: true,
       resolveStyle: (name) => `antd/es/${name}/style/index`,
-    });
-  }
-
-  if (hasInstallPackage('antd-mobile')) {
-    config.css.preprocessorOptions.less = {
-      ...config.css.preprocessorOptions.less,
-      javascriptEnabled: true,
-      modifyVars: config.antdMobile?.theme,
-    };
-    libs.push({
-      libraryName: 'antd-mobile',
-      esModule: true,
-      resolveStyle: (name) => `antd-mobile/es/${name}/style/index`,
     });
   }
 

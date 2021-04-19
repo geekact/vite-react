@@ -151,21 +151,6 @@ The less variables from [antd](https://github.com/ant-design/ant-design/blob/mas
 }
 ```
 
-#### antdMobile.theme
-Type: `object`. Default: `{}`
-
-The less variables from [antd-mobile](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less) you can override.
-
-```typescript
-{
-  antdMobile: {
-    theme: {
-      '@color-text-base': '#ff0000',
-    }
-  }
-}
-```
-
 # Tips:
 * For css-modules, you'd better install extension `clinyong.vscode-css-modules` to make vscode happy.
 * Consider to install `lodash-es` instead of `lodash` in favor of tree-shaking.
