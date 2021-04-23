@@ -230,10 +230,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.12.12":
-  version "7.13.12"
-  resolved "https://registry.npmjs.org/@babel/standalone/-/standalone-7.13.12.tgz#a7065c30bd8511cd48c99193bd69e7c596bbbc44"
-  integrity sha512-2Xb4B3EdCmgwo7Q3WVHoLfZh0Jg1AvgjWF3e2kLGZ3Yg6EosD0g6qzMZJHZ2sCoEI/g7/bjphSMTqjQDZc6SkA==
+"@babel/standalone@^7.13.12":
+  version "7.13.17"
+  resolved "https://registry.nlark.com/@babel/standalone/download/@babel/standalone-7.13.17.tgz?cache=0&sync_timestamp=1618961267853&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40babel%2Fstandalone%2Fdownload%2F%40babel%2Fstandalone-7.13.17.tgz#921b82a11a80ce824589516736d629efc53297aa"
+  integrity sha1-khuCoRqAzoJFiVFnNtYp78Uyl6o=
 
 "@babel/template@^7.12.13":
   version "7.12.13"
@@ -288,7 +288,15 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@rollup/pluginutils@^4.1.0":
+"@rollup/plugin-eslint@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.npm.taobao.org/@rollup/plugin-eslint/download/@rollup/plugin-eslint-8.0.1.tgz#bf7462f96027613729b8a805caaa951dc23c333e"
+  integrity sha1-v3Ri+WAnYTcpuKgFyqqVHcI8Mz4=
+  dependencies:
+    "@rollup/pluginutils" "^4.0.0"
+    eslint "^7.12.0"
+
+"@rollup/pluginutils@^4.0.0", "@rollup/pluginutils@^4.1.0":
   version "4.1.0"
   resolved "https://registry.npm.taobao.org/@rollup/pluginutils/download/@rollup/pluginutils-4.1.0.tgz?cache=0&sync_timestamp=1603767889260&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40rollup%2Fpluginutils%2Fdownload%2F%40rollup%2Fpluginutils-4.1.0.tgz#0dcc61c780e39257554feb7f77207dceca13c838"
   integrity sha1-Dcxhx4DjkldVT+t/dyB9zsoTyDg=
@@ -322,21 +330,21 @@
   resolved "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
   integrity sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==
 
-"@vitejs/plugin-legacy@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/@vitejs/plugin-legacy/-/plugin-legacy-1.3.1.tgz#e475213721aa7c5022314c4a6489f961a65e8d4e"
-  integrity sha512-oidELN6ckX+APLjo2vjtyKv3X0Xj3SRzYd6Bm6taInhdH/JA/zlNF9uIUNvc5fIf/vIp0haoIY+mQNInAlKRrw==
+"@vitejs/plugin-legacy@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.npm.taobao.org/@vitejs/plugin-legacy/download/@vitejs/plugin-legacy-1.3.2.tgz#e93db3020daf08a3585b08de648e5c486ff20e4d"
+  integrity sha1-6T2zAg2vCKNYWwjeZI5cSG/yDk0=
   dependencies:
-    "@babel/standalone" "^7.12.12"
+    "@babel/standalone" "^7.13.12"
     core-js "^3.8.2"
     magic-string "^0.25.7"
     regenerator-runtime "^0.13.7"
     systemjs "^6.8.3"
 
-"@vitejs/plugin-react-refresh@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/@vitejs/plugin-react-refresh/-/plugin-react-refresh-1.3.1.tgz#dfdb17e9924ba57fc4951ac882e39628051a30f4"
-  integrity sha512-VxHkrvOOTnMGWq9BveEN5ufmfDfaGxfawCymlKdF+X0RApCr0jQFzOyewhmSSCgGHjqnpRj+7TTDebjBkB3qhg==
+"@vitejs/plugin-react-refresh@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.nlark.com/@vitejs/plugin-react-refresh/download/@vitejs/plugin-react-refresh-1.3.2.tgz#c807c9c77694943b8e51f0a80babba6b078a3218"
+  integrity sha1-yAfJx3aUlDuOUfCoC6u6aweKMhg=
   dependencies:
     "@babel/core" "^7.12.13"
     "@babel/plugin-transform-react-jsx-self" "^7.12.13"
@@ -588,10 +596,10 @@ change-case@^4.1.2:
     snake-case "^3.0.4"
     tslib "^2.0.3"
 
-"chokidar@>=2.0.0 <4.0.0":
+"chokidar@>=3.0.0 <4.0.0":
   version "3.5.1"
-  resolved "https://registry.npmjs.org/chokidar/-/chokidar-3.5.1.tgz#ee9ce7bbebd2b79f49f304799d5468e31e14e68a"
-  integrity sha512-9+s+Od+W0VJJzawDma/gvBNQqkTiqYTWLuZoyAsivsI4AaWTCzHG06/TMjsf1cYe9Cb97UCEhjz7HvnPk2p/tw==
+  resolved "https://registry.nlark.com/chokidar/download/chokidar-3.5.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fchokidar%2Fdownload%2Fchokidar-3.5.1.tgz#ee9ce7bbebd2b79f49f304799d5468e31e14e68a"
+  integrity sha1-7pznu+vSt59J8wR5nVRo4x4U5oo=
   dependencies:
     anymatch "~3.1.1"
     braces "~3.0.2"
@@ -840,10 +848,10 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.npm.taobao.org/eslint-visitor-keys/download/eslint-visitor-keys-2.0.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-visitor-keys%2Fdownload%2Feslint-visitor-keys-2.0.0.tgz#21fdc8fbcd9c795cc0321f0563702095751511a8"
   integrity sha1-If3I+82ceVzAMh8FY3AglXUVEag=
 
-eslint@^7.18.0:
-  version "7.22.0"
-  resolved "https://registry.npm.taobao.org/eslint/download/eslint-7.22.0.tgz?cache=0&sync_timestamp=1615584862151&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint%2Fdownload%2Feslint-7.22.0.tgz#07ecc61052fec63661a2cab6bd507127c07adc6f"
-  integrity sha1-B+zGEFL+xjZhosq2vVBxJ8B63G8=
+eslint@^7.12.0:
+  version "7.24.0"
+  resolved "https://registry.nlark.com/eslint/download/eslint-7.24.0.tgz?cache=0&sync_timestamp=1618847135310&other_urls=https%3A%2F%2Fregistry.nlark.com%2Feslint%2Fdownload%2Feslint-7.24.0.tgz#2e44fa62d93892bfdb100521f17345ba54b8513a"
+  integrity sha1-LkT6Ytk4kr/bEAUh8XNFulS4UTo=
   dependencies:
     "@babel/code-frame" "7.12.11"
     "@eslint/eslintrc" "^0.4.0"
@@ -1970,12 +1978,12 @@ safe-buffer@~5.1.1:
   resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sass@^1.32.8:
-  version "1.32.8"
-  resolved "https://registry.npmjs.org/sass/-/sass-1.32.8.tgz#f16a9abd8dc530add8834e506878a2808c037bdc"
-  integrity sha512-Sl6mIeGpzjIUZqvKnKETfMf0iDAswD9TNlv13A7aAF3XZlRPMq4VvJWBC2N2DXbp94MQVdNSFG6LfF/iOXrPHQ==
+sass@^1.32.11:
+  version "1.32.11"
+  resolved "https://registry.nlark.com/sass/download/sass-1.32.11.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsass%2Fdownload%2Fsass-1.32.11.tgz#b236b3ea55c76602c2ef2bd0445f0db581baa218"
+  integrity sha1-sjaz6lXHZgLC7yvQRF8NtYG6ohg=
   dependencies:
-    chokidar ">=2.0.0 <4.0.0"
+    chokidar ">=3.0.0 <4.0.0"
 
 sax@^1.2.4:
   version "1.2.4"
@@ -2234,27 +2242,19 @@ v8-compile-cache@^2.0.3, v8-compile-cache@^2.3.0:
   resolved "https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==
 
-vite-plugin-eslint@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npm.taobao.org/vite-plugin-eslint/download/vite-plugin-eslint-1.1.0.tgz#f9b87cc7a0081f0925437ee2c1c75deea1b92548"
-  integrity sha1-+bh8x6AIHwklQ37iwcdd7qG5JUg=
-  dependencies:
-    "@rollup/pluginutils" "^4.1.0"
-    eslint "^7.18.0"
-
-vite-plugin-html@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/vite-plugin-html/-/vite-plugin-html-2.0.3.tgz#9c610042b4181e95ec6c7d4b4125f3c00cbbd84b"
-  integrity sha512-1+vFAXc8G1h5NRPNsV0e3GbD8KJL71nv2N8w5y4wdt6VwwAEe6zE2WI66PBVneRBJKOw56LH7C5WJvkMxec92g==
+vite-plugin-html@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.npm.taobao.org/vite-plugin-html/download/vite-plugin-html-2.0.7.tgz#55139ff8a843ba3b3d5cd48610ca6f6afdf7c23d"
+  integrity sha1-VROf+KhDujs9XNSGEMpvav33wj0=
   dependencies:
     ejs "^3.1.6"
     fs-extra "^9.1.0"
     html-minifier-terser "^5.1.1"
 
-vite-plugin-style-import@^0.8.1:
-  version "0.8.3"
-  resolved "https://registry.npm.taobao.org/vite-plugin-style-import/download/vite-plugin-style-import-0.8.3.tgz#6c9120f76cba103497c4631fd942ac1d6baa2694"
-  integrity sha1-bJEg92y6EDSXxGMf2UKsHWuqJpQ=
+vite-plugin-style-import@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.nlark.com/vite-plugin-style-import/download/vite-plugin-style-import-0.10.0.tgz#f348ca95b72cdaa212a98c2d4da0dfbf70584165"
+  integrity sha1-80jKlbcs2qISqYwtTaDfv3BYQWU=
   dependencies:
     "@rollup/pluginutils" "^4.1.0"
     change-case "^4.1.2"
@@ -2262,26 +2262,26 @@ vite-plugin-style-import@^0.8.1:
     es-module-lexer "^0.4.1"
     magic-string "^0.25.7"
 
-vite-react@^0.0.27:
-  version "0.0.27"
-  resolved "https://registry.npm.taobao.org/vite-react/download/vite-react-0.0.27.tgz#12c78391d05be84c8ac1111e5c2ac5cbf05231cf"
-  integrity sha1-EseDkdBb6EyKwREeXCrFy/BSMc8=
+vite-react@^0.0.29:
+  version "0.0.29"
+  resolved "https://registry.nlark.com/vite-react/download/vite-react-0.0.29.tgz?cache=0&sync_timestamp=1619190546394&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvite-react%2Fdownload%2Fvite-react-0.0.29.tgz#0e4e75f3664e4d74808fb21aef056269779de87a"
+  integrity sha1-Dk5182ZOTXSAj7Ia7wViaXed6Ho=
   dependencies:
-    "@vitejs/plugin-legacy" "^1.3.1"
-    "@vitejs/plugin-react-refresh" "^1.3.1"
+    "@rollup/plugin-eslint" "^8.0.1"
+    "@vitejs/plugin-legacy" "^1.3.2"
+    "@vitejs/plugin-react-refresh" "^1.3.2"
     less "^4.1.1"
     rollup "^2.38.5"
-    sass "^1.32.8"
+    sass "^1.32.11"
     v8-compile-cache "^2.3.0"
-    vite "^2.1.2"
-    vite-plugin-eslint "^1.1.0"
-    vite-plugin-html "^2.0.3"
-    vite-plugin-style-import "^0.8.1"
+    vite "^2.2.1"
+    vite-plugin-html "^2.0.7"
+    vite-plugin-style-import "^0.10.0"
 
-vite@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.npmjs.org/vite/-/vite-2.1.2.tgz#0aecaf6d34112b24536df1a14cd8d74fdcab6e20"
-  integrity sha512-K96k5Nb1kywggFwZNGf/NQVZIrjMSvjebYWFIEQRu8AQWtzxatMF8/reExFXebmrfWAT3PTUk6l4zJBkpMtyVg==
+vite@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.nlark.com/vite/download/vite-2.2.1.tgz#90c481f69371f32867d86a6a623bb064b876ad3d"
+  integrity sha1-kMSB9pNx8yhn2GpqYjuwZLh2rT0=
   dependencies:
     esbuild "^0.9.3"
     postcss "^8.2.1"
