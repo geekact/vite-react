@@ -72,7 +72,7 @@ Recommended plugins `scss`, `less` and `postcss` are builtin.
 Third plugin `@rollup/plugin-eslint` is builtin, feel free to focus on your rules.
 
 #### Antd style
-`antd` and `antd-mobile` component style will be imported dynamically.
+`antd` component style will be imported dynamically.
 ```typescript
 // Your code
 import { Button, Table } from 'antd';
