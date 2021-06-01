@@ -1,10 +1,10 @@
 import { ConfigEnv } from 'vite';
-import eslint, { RollupEslintOptions } from '@rollup/plugin-eslint';
+import eslint from 'vite-plugin-eslint';
 import { override } from '../util/override';
 import { enable } from '../util/enable';
 import { Config } from '../vite';
 
-type EslintOptions = RollupEslintOptions;
+type EslintOptions = NonNullable<Parameters<typeof eslint>[number]>;
 
 export interface OverrideEslint {
   eslint?: {

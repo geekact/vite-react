@@ -69,7 +69,7 @@ Recommended plugin `@vitejs/plugin-legacy` is builtin.
 Recommended plugins `scss`, `less` and `postcss` are builtin.
 
 #### {JS|TS} lint
-Third plugin `@rollup/plugin-eslint` is builtin, feel free to focus on your rules.
+Third plugin `vite-plugin-eslint` is builtin, feel free to focus on your rules.
 
 #### Antd style
 `antd` component style will be imported dynamically.
