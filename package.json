@@ -1,6 +1,6 @@
 {
   "name": "vite-react",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "main": "lib/index.js",
   "repository": "git@github.com:fwh1990/vite-react.git",
   "author": "原•罪",
@@ -10,24 +10,22 @@
   },
   "scripts": {
     "prepublishOnly": "sh ./scripts/prepublish.sh",
-    "rollup": "sh ./scripts/syncRollup.sh",
-    "demo": "sh ./scripts/buildDemo.sh"
+    "rollup": "sh ./scripts/syncRollup.sh"
   },
   "bin": "./lib/bin/vite-react.js",
   "dependencies": {
     "@vitejs/plugin-legacy": "1.4.1",
     "@vitejs/plugin-react-refresh": "^1.3.3",
     "less": "^4.1.1",
-    "rollup": "^2.38.5",
-    "sass": "^1.34.0",
+    "sass": "^1.34.1",
     "v8-compile-cache": "^2.3.0",
-    "vite": "^2.3.5",
+    "vite": "^2.3.7",
     "vite-plugin-eslint": "^1.1.1",
     "vite-plugin-html": "^2.0.7",
     "vite-plugin-style-import": "^0.10.1"
   },
   "devDependencies": {
-    "@types/node": "^15.6.1",
+    "@types/node": "^15.12.2",
     "typescript": "^4.3.2"
   },
   "files": [
