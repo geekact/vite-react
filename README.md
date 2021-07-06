@@ -127,7 +127,7 @@ A vite plugin to execute eslint rules when serve or build your project.
 #### eslinit.options
 Type: `object` | `(options, env) => options | undefined`. Default: `{}`
 
-@see [@rollup/plugin-eslint](https://github.com/rollup/plugins/tree/master/packages/eslint)
+SEE [vite-plugin-eslint](https://github.com/gxmari007/vite-plugin-eslint)
 
 #### reactRefresh.enable
 Type: `boolean` | `(env) => boolean`. Default: `true` for serve
