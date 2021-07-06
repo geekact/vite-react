@@ -7,7 +7,7 @@
     "removeComments": false,
     "rootDir": "./",
     "outDir": "./build",
-    "importHelpers": false,
+    "importHelpers": true,
     "downlevelIteration": true,
     "jsx": "react",
     "strict": true,
