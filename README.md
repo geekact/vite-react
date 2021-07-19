@@ -11,15 +11,6 @@ yarn add vite-react --dev
 #### package.json
 ```diff
 {
-  "scripts": {
--   "dev": "vite",
-+   "dev": "vite-react",
--   "build": "vite build",
-+   "build": "vite-react build",
--   "serve": "vite preview"
-+   "serve": "vite-react preview",
-  },
-  ...
   "devDependencies": {
 -   "@vitejs/plugin-legacy": "x.y.z",
 -   "@vitejs/plugin-react-refresh": "x.y.z",
