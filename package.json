@@ -1,6 +1,6 @@
 {
   "name": "vite-react",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "main": "lib/index.js",
   "repository": "git@github.com:fwh1990/vite-react.git",
   "author": "原•罪",
@@ -16,19 +16,19 @@
     "vite-react": "./lib/bin/vite-react.js"
   },
   "dependencies": {
-    "@vitejs/plugin-legacy": "^1.5.0",
+    "@vitejs/plugin-legacy": "^1.5.1",
     "@vitejs/plugin-react-refresh": "^1.3.6",
     "less": "^4.1.1",
-    "sass": "^1.36.0",
-    "tslib": "^2.3.0",
+    "sass": "^1.38.1",
+    "tslib": "^2.3.1",
     "v8-compile-cache": "^2.3.0",
-    "vite": "^2.4.4",
+    "vite": "^2.5.1",
     "vite-plugin-eslint": "^1.3.0",
-    "vite-plugin-html": "^2.0.7",
-    "vite-plugin-style-import": "^1.0.1"
+    "vite-plugin-html": "^2.1.0",
+    "vite-plugin-style-import": "^1.2.1"
   },
   "devDependencies": {
-    "@types/node": "^16.4.4",
+    "@types/node": "^16.7.1",
     "typescript": "^4.3.5"
   },
   "files": [
