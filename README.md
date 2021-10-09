@@ -38,9 +38,9 @@ yarn add vite-react --dev
 #### vite.config.ts
 ```diff
 - import { defineConfig } from 'vite';
-+ import { defineConfig } from 'vite-react';
 - import legacy from '@vitejs/plugin-legacy';
 - import reactRefresh from '@vitejs/plugin-react-refresh';
++ import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
@@ -50,20 +50,23 @@ export default defineConfig({
 ```
 
 # Features
-#### HMR
-Recommended plugin `@vitejs/plugin-react-refresh` is builtin.
+#### Hot module replacement
+Official plugin `@vitejs/plugin-react-refresh` is builtin.
 
-#### Legacy build
-Recommended plugin `@vitejs/plugin-legacy` is builtin.
+#### Legacy building
+Official plugin `@vitejs/plugin-legacy` is builtin.
 
 #### CSS preprocessor
 Recommended plugins `scss`, `less` and `postcss` are builtin.
+
+#### HTML handler
+Third plugin `vite-plugin-html` is builtin, that can compress html file and helpful to inject dynamic data.
 
 #### {JS|TS} lint
 Third plugin `vite-plugin-eslint` is builtin, feel free to focus on your rules.
 
 #### Antd style
-`antd` component style will be imported dynamically.
+Style of `antd` component will be imported dynamically.
 ```typescript
 // Your code
 import { Button, Table } from 'antd';
@@ -74,7 +77,7 @@ import 'antd/es/button/style/index';
 import 'antd/es/table/style/index';
 ```
 
-# Extend Options
+# Options
 
 #### legacy.enable
 Type: `boolean` | `(env) => boolean`. Default: `false`
