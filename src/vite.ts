@@ -1,4 +1,4 @@
-import { ConfigEnv, defineConfig as origin, UserConfig } from 'vite';
+import { ConfigEnv, defineConfig as origin, UserConfig, UserConfigExport } from 'vite';
 import { handleAntd, OverrideAntd } from './handler/antd';
 import { handleBuild } from './handler/build';
 import { handleCss } from './handler/css';
@@ -22,7 +22,7 @@ UserConfig
 export type ConfigFn = (env: ConfigEnv) => Config;
 export type ConfigExport = Config | ConfigFn;
 
-export const defineConfig = (config: ConfigExport = {}) => {
+export const defineConfig = (config: ConfigExport = {}): UserConfigExport => {
   return origin((env) => {
     return parseConfig(typeof config === 'function' ? config(env) : config, env);
   });
