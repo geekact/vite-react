@@ -3,12 +3,15 @@
 [Vite](https://github.com/vitejs/vite) based tooling for react explicitly.
 
 # Installation
+
 ```bash
 yarn add vite-react --dev
 ```
 
 # Migrate from vite
+
 #### package.json
+
 ```diff
 {
   "devDependencies": {
@@ -25,6 +28,7 @@ yarn add vite-react --dev
 ```
 
 #### tsconfig.json
+
 ```diff
 {
   "compilerOptions": {
@@ -36,6 +40,7 @@ yarn add vite-react --dev
 ```
 
 #### vite.config.ts
+
 ```diff
 - import { defineConfig } from 'vite';
 - import legacy from '@vitejs/plugin-legacy';
@@ -50,23 +55,31 @@ export default defineConfig({
 ```
 
 # Features
+
 #### Hot module replacement
+
 Official plugin `@vitejs/plugin-react-refresh` is builtin.
 
 #### Legacy building
+
 Official plugin `@vitejs/plugin-legacy` is builtin.
 
 #### CSS preprocessor
+
 Recommended plugins `scss`, `less` and `postcss` are builtin.
 
 #### HTML handler
+
 Third plugin `vite-plugin-html` is builtin, that can compress html file and helpful to inject dynamic data.
 
 #### {JS|TS} lint
+
 Third plugin `vite-plugin-eslint` is builtin, feel free to focus on your rules.
 
 #### Antd style
+
 Style of `antd` component will be imported dynamically.
+
 ```typescript
 // Your code
 import { Button, Table } from 'antd';
@@ -80,18 +93,23 @@ import 'antd/es/table/style/index';
 # Options
 
 #### legacy.enable
+
 Type: `boolean` | `(env) => boolean`. Default: `false`
 
 #### legacy.options
+
 Type: `object` | `(options, env) => options | undefined`.
 
 #### html.minify
+
 Type: `boolean` | `(env) => boolean`. Default: `true` for build
 
 #### html.injectData
+
 Type: `object`. Default: `{}`
 
 Inject custom data into html:
+
 ```typescript
 {
   html: {
@@ -102,7 +120,9 @@ Inject custom data into html:
   }
 }
 ```
+
 And in html file:
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -114,22 +134,27 @@ And in html file:
 ```
 
 #### eslint.enable
+
 Type: `boolean` | `(env) => boolean`. Default: `false`
 
 A vite plugin to execute eslint rules when serve or build your project.
 
 #### eslinit.options
+
 Type: `object` | `(options, env) => options | undefined`. Default: `{}`
 
 SEE [vite-plugin-eslint](https://github.com/gxmari007/vite-plugin-eslint)
 
 #### reactRefresh.enable
+
 Type: `boolean` | `(env) => boolean`. Default: `true` for serve
 
 #### reactRefresh.options
+
 Type: `object` | `(options, env) => options | undefined`.
 
 #### antd.theme
+
 Type: `object`. Default: `{}`
 
 The less variables from [antd](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) you can override.
@@ -146,6 +171,7 @@ The less variables from [antd](https://github.com/ant-design/ant-design/blob/mas
 ```
 
 # Tips:
-* For css-modules, you'd better install extension `clinyong.vscode-css-modules` to make vscode happy.
-* Consider to install `lodash-es` instead of `lodash` in favor of tree-shaking.
-* For unsupported extensions, append `?url` or `?raw` to path, such as: `import mydata from '../xx.pdf?url`.
+
+- For css-modules, you'd better install extension `clinyong.vscode-css-modules` to make vscode happy.
+- Consider to install `lodash-es` instead of `lodash` in favor of tree-shaking.
+- For unsupported extensions, append `?url` or `?raw` to path, such as: `import mydata from '../xx.pdf?url`.

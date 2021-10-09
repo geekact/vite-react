@@ -14,16 +14,16 @@ export interface OverrideLegacy {
      * @default false
      */
     enable?: boolean | ((env: ConfigEnv) => boolean);
-    options?: LegacyOptions | ((originalOptions: LegacyOptions, env: ConfigEnv) => LegacyOptions | undefined);
-  }
+    options?:
+      | LegacyOptions
+      | ((originalOptions: LegacyOptions, env: ConfigEnv) => LegacyOptions | undefined);
+  };
 }
 
 export const handleLegacy = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
   if (enable(config.legacy?.enable, env, false)) {
-    config.plugins.push(legacy(
-      override(config.legacy?.options, env, {})
-    ));
+    config.plugins.push(legacy(override(config.legacy?.options, env, {})));
   }
 };

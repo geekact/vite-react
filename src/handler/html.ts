@@ -14,7 +14,7 @@ export interface OverrideHtml {
      * @default true for build
      */
     minify?: boolean | ((env: ConfigEnv) => boolean);
-  }
+  };
 }
 
 export const handleHtml = (config: Config, env: ConfigEnv) => {

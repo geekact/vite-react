@@ -3,7 +3,7 @@ import { ConfigEnv } from 'vite';
 export const enable = (
   fn: boolean | ((env: ConfigEnv) => boolean) | undefined,
   env: ConfigEnv,
-  defaultEnalbe: boolean | ((env: ConfigEnv) => boolean)
+  defaultEnalbe: boolean | ((env: ConfigEnv) => boolean),
 ) => {
   if (typeof fn === 'function') {
     return fn(env);

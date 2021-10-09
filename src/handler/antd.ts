@@ -40,4 +40,4 @@ export const handleAntd = (config: Config, _env: ConfigEnv) => {
   if (libs.length) {
     config.plugins.push(styleImport({ libs }));
   }
-}
+};

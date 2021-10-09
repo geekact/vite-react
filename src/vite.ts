@@ -9,15 +9,14 @@ import { handleMix, OverrideMix } from './handler/mix';
 import { handleReactRefresh, OverrideReactRefresh } from './handler/reactRefresh';
 import { handleServer } from './handler/server';
 
-export interface Config extends
-OverrideAntd,
-OverrideMix,
-OverrideReactRefresh,
-OverrideLegacy,
-OverrideHtml,
-OverrideEslint,
-UserConfig
-{}
+export interface Config
+  extends OverrideAntd,
+    OverrideMix,
+    OverrideReactRefresh,
+    OverrideLegacy,
+    OverrideHtml,
+    OverrideEslint,
+    UserConfig {}
 
 export type ConfigFn = (env: ConfigEnv) => Config;
 export type ConfigExport = Config | ConfigFn;

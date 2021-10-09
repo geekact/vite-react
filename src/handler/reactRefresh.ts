@@ -13,8 +13,10 @@ export interface OverrideReactRefresh {
      * @default false for build.
      */
     enable?: boolean | ((env: ConfigEnv) => boolean);
-    options?: ReactRefreshOptions | ((originalOptions: ReactRefreshOptions, env: ConfigEnv) => ReactRefreshOptions | undefined);
-  }
+    options?:
+      | ReactRefreshOptions
+      | ((originalOptions: ReactRefreshOptions, env: ConfigEnv) => ReactRefreshOptions | undefined);
+  };
 }
 
 const defaultOptions: ReactRefreshOptions = {
@@ -25,10 +27,6 @@ export const handleReactRefresh = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
   if (enable(config.reactRefresh?.enable, env, env.command === 'serve')) {
-    config.plugins.push(
-      reactRefresh(
-        override(config.reactRefresh?.options, env, defaultOptions)
-      )
-    );
+    config.plugins.push(reactRefresh(override(config.reactRefresh?.options, env, defaultOptions)));
   }
 };
