@@ -1,5 +1,4 @@
 import { ConfigEnv, defineConfig as origin, UserConfig, UserConfigExport } from 'vite';
-import { handleAntd, OverrideAntd } from './handler/antd';
 import { handleBuild } from './handler/build';
 import { handleCss } from './handler/css';
 import { handleEslint, OverrideEslint } from './handler/eslint';
@@ -8,14 +7,15 @@ import { handleLegacy, OverrideLegacy } from './handler/legacy';
 import { handleMix, OverrideMix } from './handler/mix';
 import { handleReactRefresh, OverrideReactRefresh } from './handler/reactRefresh';
 import { handleServer } from './handler/server';
+import { handleStyleImport, OverrideStyleImport } from './handler/styleImport';
 
 export interface Config
-  extends OverrideAntd,
-    OverrideMix,
+  extends OverrideMix,
     OverrideReactRefresh,
     OverrideLegacy,
     OverrideHtml,
     OverrideEslint,
+    OverrideStyleImport,
     UserConfig {}
 
 export type ConfigFn = (env: ConfigEnv) => Config;
@@ -36,7 +36,7 @@ const parseConfig = (config: Config, env: ConfigEnv) => {
   handleReactRefresh(config, env);
   handleLegacy(config, env);
   handleCss(config, env);
-  handleAntd(config, env);
+  handleStyleImport(config, env);
   handleBuild(config, env);
   handleMix(config, env);
   handleServer(config, env);

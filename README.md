@@ -76,19 +76,9 @@ Third plugin `vite-plugin-html` is builtin, that can compress html file and help
 
 Third plugin `vite-plugin-eslint` is builtin, feel free to focus on your rules.
 
-#### Antd style
+#### Dynamic style import
 
-Style of `antd` component will be imported dynamically.
-
-```typescript
-// Your code
-import { Button, Table } from 'antd';
-
-// Transform code by vite
-import { Button, Table } from 'antd';
-import 'antd/es/button/style/index';
-import 'antd/es/table/style/index';
-```
+Third plugin `vite-plugin-style-import` is builtin.
 
 # Options
 
@@ -153,21 +143,61 @@ Type: `boolean` | `(env) => boolean`. Default: `true` for serve
 
 Type: `object` | `(options, env) => options | undefined`.
 
-#### antd.theme
+#### styleImport.enable
 
-Type: `object`. Default: `{}`
+Type: `boolean` | `(env) => boolean`. Default: `true`
 
-The less variables from [antd](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) you can override.
+Load dynamic style.
+
+#### styleImport.options
+
+Type: `object` | `(options, env) => options | undefined`.
+
+For example the **antd** ui library, you can do it like this:
 
 ```typescript
-{
-  antd: {
-    theme: {
-      '@body-background': '#ff0000',
-      '@font-size-sm': '13px',
+import { defineConfig, styleResolves } from 'vite-react';
+
+export default defineConfig({
+  styleImport: {
+    options: {
+      resolves: [styleResolves.antd()];
     }
   }
-}
+});
+```
+
+let's see the magic:
+
+```typescript
+// Your code
+import { Button, Table } from 'antd';
+
+// Compiled code
+import { Button, Table } from 'antd';
+import 'antd/es/button/style/index';
+import 'antd/es/table/style/index';
+```
+
+For more ui library, do it like this:
+
+```typescript
+import { defineConfig } from 'vite-react';
+
+export default defineConfig({
+  styleImport: {
+    options: {
+      libs: [
+        {
+          libraryName: 'xxx',
+          esModule: true,
+          resolveStyle: (name) => `xxx/es/${name}/style/index`,
+        },
+        ...
+      ];
+    }
+  }
+});
 ```
 
 # Tips:
