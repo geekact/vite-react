@@ -5,13 +5,13 @@ import { handleEslint, OverrideEslint } from './handler/eslint';
 import { handleHtml, OverrideHtml } from './handler/html';
 import { handleLegacy, OverrideLegacy } from './handler/legacy';
 import { handleMix, OverrideMix } from './handler/mix';
-import { handleReactRefresh, OverrideReactRefresh } from './handler/reactRefresh';
+import { handleReact, OverrideReact } from './handler/react';
 import { handleServer } from './handler/server';
 import { handleStyleImport, OverrideStyleImport } from './handler/styleImport';
 
 export interface Config
   extends OverrideMix,
-    OverrideReactRefresh,
+    OverrideReact,
     OverrideLegacy,
     OverrideHtml,
     OverrideEslint,
@@ -33,7 +33,7 @@ const parseConfig = (config: Config, env: ConfigEnv) => {
    * @see https://github.com/vitejs/vite/issues/2663
    */
   handleEslint(config, env);
-  handleReactRefresh(config, env);
+  handleReact(config, env);
   handleLegacy(config, env);
   handleCss(config, env);
   handleStyleImport(config, env);

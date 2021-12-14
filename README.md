@@ -16,7 +16,7 @@ yarn add vite-react --dev
 {
   "devDependencies": {
 -   "@vitejs/plugin-legacy": "x.y.z",
--   "@vitejs/plugin-react-refresh": "x.y.z",
+-   "@vitejs/plugin-react": "x.y.z",
 -   "less": "x.y.z",
 -   "sass": "x.y.z",
 -   "vite": "x.y.z",
@@ -44,12 +44,12 @@ yarn add vite-react --dev
 ```diff
 - import { defineConfig } from 'vite';
 - import legacy from '@vitejs/plugin-legacy';
-- import reactRefresh from '@vitejs/plugin-react-refresh';
+- import react from '@vitejs/plugin-react';
 + import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
-- plugins: [reactRefresh(), legacy()],
+- plugins: [react(), legacy()],
   ...
 });
 ```
@@ -58,7 +58,7 @@ export default defineConfig({
 
 #### Hot module replacement
 
-Official plugin `@vitejs/plugin-react-refresh` is builtin.
+Official plugin `@vitejs/plugin-react` is builtin.
 
 #### Legacy building
 
@@ -135,13 +135,11 @@ Type: `object` | `(options, env) => options | undefined`. Default: `{}`
 
 SEE [vite-plugin-eslint](https://github.com/gxmari007/vite-plugin-eslint)
 
-#### reactRefresh.enable
-
-Type: `boolean` | `(env) => boolean`. Default: `true` for serve
-
-#### reactRefresh.options
+#### react
 
 Type: `object` | `(options, env) => options | undefined`.
+
+Configure babel and fast-refresh and so on.
 
 #### styleImport.enable
 
