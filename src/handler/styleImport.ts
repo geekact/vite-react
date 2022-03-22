@@ -1,5 +1,8 @@
 import { ConfigEnv } from 'vite';
-import styleImport, { VitePluginOptions as StyleImportOptions } from 'vite-plugin-style-import';
+import {
+  VitePluginOptions as StyleImportOptions,
+  createStyleImportPlugin,
+} from 'vite-plugin-style-import';
 import { override } from '../util/override';
 import { enable } from '../util/enable';
 import { Config } from '../vite';
@@ -22,6 +25,6 @@ export const handleStyleImport = (config: Config, env: ConfigEnv) => {
   config.plugins ||= [];
 
   if (enable(config.styleImport?.enable, env, true)) {
-    config.plugins.push(styleImport(override(config.styleImport?.options, env, {})));
+    config.plugins.push(createStyleImportPlugin(override(config.styleImport?.options, env, {})));
   }
 };
