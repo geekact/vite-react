@@ -1,7 +1,6 @@
 import { ConfigEnv, defineConfig as origin, UserConfig, UserConfigExport } from 'vite';
 import { handleBuild } from './handler/build';
 import { handleCss } from './handler/css';
-import { handleEslint, OverrideEslint } from './handler/eslint';
 import { handleHtml, OverrideHtml } from './handler/html';
 import { handleLegacy, OverrideLegacy } from './handler/legacy';
 import { handleMix, OverrideMix } from './handler/mix';
@@ -14,7 +13,6 @@ export interface Config
     OverrideReact,
     OverrideLegacy,
     OverrideHtml,
-    OverrideEslint,
     OverrideStyleImport,
     UserConfig {}
 
@@ -28,11 +26,6 @@ export const defineConfig = (config: ConfigExport = {}): UserConfigExport => {
 };
 
 const parseConfig = (config: Config, env: ConfigEnv) => {
-  /**
-   * Plugin eslint should inject before react-refresh.
-   * @see https://github.com/vitejs/vite/issues/2663
-   */
-  handleEslint(config, env);
   handleReact(config, env);
   handleLegacy(config, env);
   handleCss(config, env);
