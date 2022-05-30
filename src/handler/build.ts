@@ -1,5 +1,6 @@
 import { extname } from 'path';
 import { ConfigEnv } from 'vite';
+import { OutputOptions } from 'rollup';
 import { Config } from '../vite';
 
 const assetPatterns = <const>[
@@ -13,8 +14,21 @@ export const handleBuild = (config: Config, _env: ConfigEnv) => {
   config.build ||= {};
   // Unnecessary to show this and improve build speed.
   config.build.reportCompressedSize ??= false;
-  config.build.rollupOptions = {
-    output: {
+
+  config.build.rollupOptions ||= {};
+  config.build.rollupOptions.output ||= {};
+
+  const keys = Object.keys(config.build.rollupOptions.output) as (keyof OutputOptions)[];
+  const overrideKeys: (keyof OutputOptions)[] = [
+    'assetFileNames',
+    'chunkFileNames',
+    'entryFileNames',
+  ];
+  const userDefined = keys.some((key) => overrideKeys.includes(key));
+
+  if (!userDefined) {
+    config.build.rollupOptions.output = {
+      ...config.build.rollupOptions.output,
       assetFileNames(assetInfo) {
         const ext = extname(assetInfo.name || '');
         let folder = 'misc';
@@ -30,6 +44,6 @@ export const handleBuild = (config: Config, _env: ConfigEnv) => {
       },
       chunkFileNames: 'bundle/js/[name]-[hash].js',
       entryFileNames: 'bundle/js/[name]-[hash].js',
-    },
-  };
+    };
+  }
 };
