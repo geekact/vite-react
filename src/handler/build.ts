@@ -4,10 +4,10 @@ import { OutputOptions } from 'rollup';
 import { Config } from '../vite';
 
 const assetPatterns = <const>[
-  ['media', /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/i],
-  ['image', /\.(png|jpe?g|gif|svg)(\?.*)?$/i],
+  ['media', /\.(mp4|webm|ogg|mp3|wav|flac|aac|swf)(\?.*)?$/i],
+  ['image', /\.(png|jpe?g|gif|ico|svg|webp)(\?.*)?$/i],
   ['font', /\.(woff2?|eot|ttf|otf)(\?.*)?$/i],
-  ['style', /\.css(\?.*)?$/i],
+  ['style', /\.(s?css|less|styl)(\?.*)?$/i],
 ];
 
 export const handleBuild = (config: Config, _env: ConfigEnv) => {
@@ -33,7 +33,7 @@ export const handleBuild = (config: Config, _env: ConfigEnv) => {
         const ext = extname(assetInfo.name || '');
         let folder = 'misc';
 
-        for (let [name, pattern] of assetPatterns) {
+        for (const [name, pattern] of assetPatterns) {
           if (pattern.test(ext)) {
             folder = name;
             break;
