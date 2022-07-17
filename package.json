@@ -6,7 +6,7 @@
   "author": "fwh1990",
   "license": "MIT",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=14.18.0"
   },
   "scripts": {
     "prepublishOnly": "sh ./scripts/prepublish.sh"
