@@ -14,7 +14,7 @@ export interface Config
     OverrideLegacy,
     OverrideHtml,
     OverrideStyleImport,
-    UserConfig {}
+    Omit<UserConfig, 'legacy'> {}
 
 export type ConfigFn = (env: ConfigEnv) => Config;
 export type ConfigExport = Config | ConfigFn;

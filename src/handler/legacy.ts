@@ -1,8 +1,11 @@
 import { ConfigEnv } from 'vite';
-import legacy, { Options as LegacyOptions } from '@vitejs/plugin-legacy';
+import { LegacyOptions as OriginLegacyOptions } from 'vite';
+import legacy from '@vitejs/plugin-legacy';
 import { Config } from '../vite';
 import { override } from '../util/override';
 import { enable } from '../util/enable';
+
+export type LegacyOptions = NonNullable<Parameters<typeof legacy>[0]>;
 
 export interface OverrideLegacy {
   /**
@@ -17,7 +20,7 @@ export interface OverrideLegacy {
     options?:
       | LegacyOptions
       | ((originalOptions: LegacyOptions, env: ConfigEnv) => LegacyOptions | undefined);
-  };
+  } & OriginLegacyOptions;
 }
 
 export const handleLegacy = (config: Config, env: ConfigEnv) => {
