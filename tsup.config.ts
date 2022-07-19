@@ -5,7 +5,7 @@ export default defineConfig({
   splitting: true,
   sourcemap: true,
   clean: true,
-  format: ['esm'],
+  format: ['esm', 'cjs'],
   platform: 'node',
   tsconfig: './tsconfig.json',
   target: 'node16',
