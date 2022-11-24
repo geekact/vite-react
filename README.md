@@ -5,7 +5,7 @@
 # Installation
 
 ```bash
-yarn add vite-react --dev
+yarn add vite vite-react --dev
 ```
 
 # Migrate from vite
@@ -19,7 +19,7 @@ yarn add vite-react --dev
 -   "@vitejs/plugin-react": "x.y.z",
 -   "less": "x.y.z",
 -   "sass": "x.y.z",
--   "vite": "x.y.z",
+    "vite": "x.y.z",
 +   "vite-react": "x.y.z",
     ...
   },
