@@ -40,10 +40,10 @@ export const handleBuild = (config: Config, _env: ConfigEnv) => {
           }
         }
 
-        return `bundle/${folder}/[name]-[hash][extname]`;
+        return `${folder}/[name]-[hash][extname]`;
       },
-      chunkFileNames: 'bundle/js/[name]-[hash].js',
-      entryFileNames: 'bundle/js/[name]-[hash].js',
+      chunkFileNames: 'js/chunk-[name]-[hash].js',
+      entryFileNames: 'js/entry-[name]-[hash].js',
     };
   }
 };
