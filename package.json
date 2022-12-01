@@ -10,7 +10,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "repository": "git@github.com:geekact/vite-react.git",
   "author": "geekact",
@@ -18,6 +19,11 @@
   "engines": {
     "node": ">=14.18.0"
   },
+  "volta": {
+    "node": "16.16.0",
+    "pnpm": "7.17.1"
+  },
+  "packageManager": "pnpm@7.17.1",
   "scripts": {
     "prepublishOnly": "tsup && echo \"import 'vite/client';\" >> dist/index.d.ts"
   },
