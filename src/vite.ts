@@ -25,15 +25,19 @@ export const defineConfig = (config: ConfigExport = {}): UserConfigExport => {
   });
 };
 
-const parseConfig = (config: Config, env: ConfigEnv) => {
-  handleReact(config, env);
-  handleLegacy(config, env);
+const parseConfig = (config: Config, env: ConfigEnv): Omit<Config, 'legacy'> => {
+  handleReact(config);
+  delete config.react;
+  handleLegacy(config);
+  delete config.legacy;
   handleCss(config, env);
-  handleStyleImport(config, env);
-  handleBuild(config, env);
-  handleMix(config, env);
-  handleServer(config, env);
+  handleStyleImport(config);
+  delete config.styleImport;
+  handleBuild(config);
+  handleMix(config);
+  handleServer(config);
   handleHtml(config, env);
+  delete config.html;
 
   return config;
 };

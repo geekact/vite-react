@@ -1,30 +1,31 @@
-import { ConfigEnv } from 'vite';
 import {
   VitePluginOptions as StyleImportOptions,
   createStyleImportPlugin,
 } from 'vite-plugin-style-import';
-import { override } from '../util/override';
-import { enable } from '../util/enable';
 import { Config } from '../vite';
 import { AntdResolve } from 'vite-plugin-style-import';
 
-export const styleResolves = {
-  antd: AntdResolve,
-};
+type Resolves = 'antd';
 
 export interface OverrideStyleImport {
-  styleImport?: {
-    enable?: boolean | ((env: ConfigEnv) => boolean);
-    options?:
-      | StyleImportOptions
-      | ((originalOptions: StyleImportOptions, env: ConfigEnv) => StyleImportOptions | undefined);
-  };
+  styleImport?: Omit<StyleImportOptions, 'resolves'> & { resolves: Resolves[] };
 }
 
-export const handleStyleImport = (config: Config, env: ConfigEnv) => {
-  config.plugins ||= [];
+export const handleStyleImport = (config: Config) => {
+  if (!config.styleImport || Object.keys(config.styleImport).length === 0) return;
 
-  if (enable(config.styleImport?.enable, env, true)) {
-    config.plugins.push(createStyleImportPlugin(override(config.styleImport?.options, env, {})));
-  }
+  config.plugins ||= [];
+  config.plugins.push(
+    createStyleImportPlugin({
+      ...config.styleImport,
+      resolves: config.styleImport.resolves.map((key) => {
+        switch (key) {
+          case 'antd':
+            return AntdResolve();
+          default:
+            throw new TypeError(`Unknown style resolve key: ${key}`);
+        }
+      }),
+    }),
+  );
 };

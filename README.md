@@ -78,21 +78,17 @@ Third plugin `vite-plugin-style-import` is builtin.
 
 # Options
 
-#### legacy.enable
+#### legacy
 
-Type: `boolean` | `(env) => boolean`. Default: `false`
-
-#### legacy.options
-
-Type: `object` | `(options, env) => options | undefined`.
+Type: `object`. Defaults `undefined`
 
 #### html.minify
 
-Type: `boolean` | `(env) => boolean`. Default: `true` for build
+Type: `boolean`. Defaults `true` for build
 
 #### html.injectData
 
-Type: `object`. Default: `{}`
+Type: `object`. Defaults `{}`
 
 Inject custom data into html:
 
@@ -121,31 +117,25 @@ And in html file:
 
 #### react
 
-Type: `object` | `(options, env) => options | undefined`.
+Type: `object`
 
 Configure babel and fast-refresh and so on.
 
-#### styleImport.enable
+#### styleImport
 
-Type: `boolean` | `(env) => boolean`. Default: `true`
+Type: `object`
 
 Load dynamic style.
-
-#### styleImport.options
-
-Type: `object` | `(options, env) => options | undefined`.
 
 For example the **antd** ui library, you can do it like this:
 
 ```typescript
-import { defineConfig, styleResolves } from 'vite-react';
+import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   styleImport: {
-    options: {
-      resolves: [styleResolves.antd()];
-    }
-  }
+    resolves: ['antd'],
+  },
 });
 ```
 
@@ -168,16 +158,14 @@ import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   styleImport: {
-    options: {
-      libs: [
-        {
-          libraryName: 'xxx',
-          esModule: true,
-          resolveStyle: (name) => `xxx/es/${name}/style/index`,
-        },
-        ...
-      ];
-    }
+    libs: [
+      {
+        libraryName: 'xxx',
+        esModule: true,
+        resolveStyle: (name) => `xxx/es/${name}/style/index`,
+      },
+      ...
+    ],
   }
 });
 ```

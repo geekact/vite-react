@@ -36,12 +36,9 @@ export interface OverrideHtml {
 }
 
 export const handleHtml = (config: Config, env: ConfigEnv) => {
+  if (!config.html) return;
+
   const html = config.html;
-
-  if (!html) {
-    return;
-  }
-
   let minify = html.minify;
   if (minify === undefined) {
     minify = env.command === 'build';

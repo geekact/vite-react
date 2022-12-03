@@ -1,4 +1,3 @@
-import { ConfigEnv } from 'vite';
 import { Config } from '../vite';
 
 export interface OverrideMix {
@@ -13,7 +12,7 @@ export interface OverrideMix {
   clearScreen?: boolean;
 }
 
-export const handleMix = (config: Config, _env: ConfigEnv) => {
+export const handleMix = (config: Config) => {
   config.base ??= './';
   config.clearScreen ??= false;
 };

@@ -1,5 +1,4 @@
 import { extname } from 'path';
-import { ConfigEnv } from 'vite';
 import { OutputOptions } from 'rollup';
 import { Config } from '../vite';
 
@@ -10,7 +9,7 @@ const assetPatterns = <const>[
   ['style', /\.(s?css|less|styl)(\?.*)?$/i],
 ];
 
-export const handleBuild = (config: Config, _env: ConfigEnv) => {
+export const handleBuild = (config: Config) => {
   config.build ||= {};
   // Unnecessary to show this and improve build speed.
   config.build.reportCompressedSize ??= false;
