@@ -89,38 +89,7 @@ React 项目基础插件。具体配置请查看官方文档 [@vitejs/plugin-rea
 
 # html
 
-对 html 文件的动态蛇者
-
-#### html.minify [boolean]
-
-是否压缩 html 文件，在 `build` 阶段默认打开
-
-#### html.injectData [object]
-
-注入动态数据
-
-```typescript
-{
-  html: {
-    injectData: {
-      hello: 'world',
-      now: Date.now(),
-    }
-  }
-}
-```
-
-接着你可以在 html 文件中接收动态数据
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="test" content="<%=hello%>" />
-    <meta name="deploy-time" content="<%=now%>" />
-  </head>
-</html>
-```
+对 html 文件的动态处理。请查看官方文档 [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html#useroptions)
 
 # styleImport
 
@@ -152,7 +121,7 @@ import 'antd/es/table/style/index';
 
 # startOver
 
-指定文件变化时**重启 vite 服务**或者**全量刷新页面**，和`nodemon`说拜拜。
+指定文件变化时**重启 vite 服务**或者**全量刷新页面**，和`nodemon`说拜拜。官方仓库 [vite-plugin-restart](https://github.com/antfu/vite-plugin-restart) 文档不全，所以在这里详细介绍。
 
 ### startOver.restart [string | Array<string>]
 
