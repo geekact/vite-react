@@ -14,6 +14,7 @@ specifiers:
   typescript: ^4.9.3
   vite: ^3.2.4
   vite-plugin-html: ^3.2.0
+  vite-plugin-restart: ^0.2.0
   vite-plugin-style-import: ^2.0.0
 
 dependencies:
@@ -25,6 +26,7 @@ dependencies:
   terser: 5.16.0
   tslib: 2.4.1
   vite-plugin-html: 3.2.0_vite@3.2.4
+  vite-plugin-restart: 0.2.0_vite@3.2.4
   vite-plugin-style-import: 2.0.0_vite@3.2.4
 
 devDependencies:
@@ -1894,6 +1896,15 @@ packages:
       html-minifier-terser: 6.1.0
       node-html-parser: 5.4.2
       pathe: 0.2.0
+      vite: 3.2.4_u7f6mafdyzlit6u3rwittjvhvm
+    dev: false
+
+  /vite-plugin-restart/0.2.0_vite@3.2.4:
+    resolution: {integrity: sha512-DDgZh2EM0b2ZvqMpk3AOiXMP/ZOLhrJhUvcYkV21qbBl85tM5ezzt2OUXamV0wIsOzz3UDFAnLcHs3k6G3QMWw==}
+    peerDependencies:
+      vite: ^2.9.0 || ^3.0.0
+    dependencies:
+      micromatch: 4.0.5
       vite: 3.2.4_u7f6mafdyzlit6u3rwittjvhvm
     dev: false
 

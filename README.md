@@ -1,40 +1,41 @@
 # vite-react
 
-[Vite](https://github.com/vitejs/vite) based tooling for react explicitly.
+基于 [Vite](https://github.com/vitejs/vite) 工具的 react 专属版本
 
-# Installation
+# 安装
 
 ```bash
 # npm
 npm install vite vite-react --save-dev
 # yarn
 yarn add vite vite-react --dev
-#pnpm
+# pnpm
 pnpm add vite vite-react -D
 ```
 
-# Migrate to builtin configuration
+# 配置迁移
 
-#### package.json
+### package.json
 
 ```diff
 {
   "devDependencies": {
--   "@vitejs/plugin-legacy": "x.y.z",
--   "@vitejs/plugin-react": "x.y.z",
--   "less": "x.y.z",
--   "sass": "x.y.z",
-    "vite": "x.y.z",
--   "vite-plugin-html": "x.y.z",
--   "vite-plugin-style-import": "x.y.z",
-+   "vite-react": "x.y.z"
+-   "@vitejs/plugin-legacy": "*",
+-   "@vitejs/plugin-react": "*",
+-   "less": "*",
+-   "sass": "*",
+    "vite": "*",
+-   "vite-plugin-html": "*",
+-   "vite-plugin-restart": "*",
+-   "vite-plugin-style-import": "*",
++   "vite-react": "*"
     ...
   },
   ...
 }
 ```
 
-#### tsconfig.json
+### tsconfig.json
 
 ```diff
 {
@@ -46,7 +47,7 @@ pnpm add vite vite-react -D
 }
 ```
 
-#### vite.config.ts
+### vite.config.ts
 
 ```diff
 - import { defineConfig } from 'vite';
@@ -54,56 +55,42 @@ pnpm add vite vite-react -D
 - import react from '@vitejs/plugin-react';
 - import { createHtmlPlugin } from 'vite-plugin-html';
 - import { createStyleImportPlugin } from 'vite-plugin-style-import';
+- import VitePluginRestart from 'vite-plugin-restart';
 + import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
-- plugins: [react(), legacy(), createHtmlPlugin(), createStyleImportPlugin()],
+- plugins: [
+-   react(), legacy(), createHtmlPlugin(), createStyleImportPlugin(), VitePluginRestart()
+- ],
 + react: {},
 + legacy: {},
 + html: {},
 + styleImport: {},
++ startOver: {},
   ...
 });
 ```
 
-# Features
+# react
 
-#### Hot module replacement
+React 项目基础插件。具体配置请查看官方文档 [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react)
 
-Official plugin `@vitejs/plugin-react` is builtin.
+# legacy
 
-#### Legacy bundles
+兼容不支持 ES 模块的浏览器。请查看官方文档 [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy#options)
 
-Official plugin `@vitejs/plugin-legacy` is builtin.
+# html
 
-#### CSS preprocessor
+对 html 文件的动态蛇者
 
-Recommended plugins `scss`, `less` and `postcss` are builtin.
+#### html.minify [boolean]
 
-#### HTML handler
+是否压缩 html 文件，在 `build` 阶段默认打开
 
-Third plugin `vite-plugin-html` is builtin, that can compress html file and helpful to inject dynamic data.
+#### html.injectData [object]
 
-#### Dynamic style import
-
-Third plugin `vite-plugin-style-import` is builtin.
-
-# Options
-
-#### legacy
-
-Type: `object`. Defaults `undefined`
-
-#### html.minify
-
-Type: `boolean`. Defaults `true` for build
-
-#### html.injectData
-
-Type: `object`. Defaults `{}`
-
-Inject custom data into html:
+注入动态数据
 
 ```typescript
 {
@@ -116,7 +103,7 @@ Inject custom data into html:
 }
 ```
 
-And in html file:
+接着你可以在 html 文件中接收动态数据
 
 ```html
 <!DOCTYPE html>
@@ -128,19 +115,9 @@ And in html file:
 </html>
 ```
 
-#### react
+# styleImport
 
-Type: `object`
-
-Configure babel and fast-refresh and so on.
-
-#### styleImport
-
-Type: `object`
-
-Load dynamic style.
-
-For example the **antd** ui library, you can do it like this:
+按需加载 UI 库的样式，最常见的 reactUI 框架是`antd`，你可以这么做：
 
 ```typescript
 import { defineConfig } from 'vite-react';
@@ -152,39 +129,42 @@ export default defineConfig({
 });
 ```
 
-let's see the magic:
+按需加载的转译方式如下所示：
 
 ```typescript
-// Your code
+// 源代码
 import { Button, Table } from 'antd';
 
-// Compiled code
+// 转译后的代码
 import { Button, Table } from 'antd';
 import 'antd/es/button/style/index';
 import 'antd/es/table/style/index';
 ```
 
-For more ui library, do it like this:
+对于更多样式设置，请参考官方文档 [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html#useroptions)
 
-```typescript
-import { defineConfig } from 'vite-react';
+# startOver
 
-export default defineConfig({
-  styleImport: {
-    libs: [
-      {
-        libraryName: 'xxx',
-        esModule: true,
-        resolveStyle: (name) => `xxx/es/${name}/style/index`,
-      },
-      ...
-    ],
-  }
-});
-```
+指定文件变化时**重启 vite 服务**或者**全量刷新页面**，和`nodemon`说拜拜。
 
-# Tips:
+### startOver.restart [string | Array<string>]
 
-- For css-modules, you'd better install extension `clinyong.vscode-css-modules` to make vscode happy.
-- Consider to install `lodash-es` instead of `lodash` in favor of tree-shaking.
-- For unsupported extensions, append `?url` or `?raw` to path, such as: `import mydata from '../xx.pdf?url`.
+给定文件变化时，重启 vite 服务，比如 `['my.config.[jt]s']`
+
+### startOver.reload [string | Array<string>]
+
+给定文件变化时，刷新页面，比如 `['my.config.[jt]s']`
+
+### startOver.delay [number=500]
+
+延时生效的毫秒数
+
+### startOver.glob [bool=true]
+
+restart|reload 列举的文件是否允许使用匹配符号
+
+# 温馨提示
+
+- 使用 css-modules 时，建议安装 vscode 插件 `clinyong.vscode-css-modules` 以获得更多提示
+- 尽量使用 `lodash-es` 代替 ~~`lodash`~~ 以获得 tree-shaking 优化
+- 对于 vite 无法识别的文件后缀，在路径后面增加 `?url` 或者 `?raw`。比如：`import mydata from '../xx.pdf?url`
