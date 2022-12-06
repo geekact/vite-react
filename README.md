@@ -5,10 +5,15 @@
 # Installation
 
 ```bash
+# npm
+npm install vite vite-react --save-dev
+# yarn
 yarn add vite vite-react --dev
+#pnpm
+pnpm add vite vite-react -D
 ```
 
-# Migrate from vite
+# Migrate to builtin configuration
 
 #### package.json
 
@@ -20,7 +25,9 @@ yarn add vite vite-react --dev
 -   "less": "x.y.z",
 -   "sass": "x.y.z",
     "vite": "x.y.z",
-+   "vite-react": "x.y.z",
+-   "vite-plugin-html": "x.y.z",
+-   "vite-plugin-style-import": "x.y.z",
++   "vite-react": "x.y.z"
     ...
   },
   ...
@@ -45,11 +52,17 @@ yarn add vite vite-react --dev
 - import { defineConfig } from 'vite';
 - import legacy from '@vitejs/plugin-legacy';
 - import react from '@vitejs/plugin-react';
+- import { createHtmlPlugin } from 'vite-plugin-html';
+- import { createStyleImportPlugin } from 'vite-plugin-style-import';
 + import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
-- plugins: [react(), legacy()],
+- plugins: [react(), legacy(), createHtmlPlugin(), createStyleImportPlugin()],
++ react: {},
++ legacy: {},
++ html: {},
++ styleImport: {},
   ...
 });
 ```
@@ -60,7 +73,7 @@ export default defineConfig({
 
 Official plugin `@vitejs/plugin-react` is builtin.
 
-#### Legacy building
+#### Legacy bundles
 
 Official plugin `@vitejs/plugin-legacy` is builtin.
 
