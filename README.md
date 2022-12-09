@@ -68,10 +68,12 @@ export default defineConfig({
 
 # 最佳实践
 
-- 自动引入 `vite/client.d.ts` 类型文件
+- 自动使用 react 插件
+- 自动引入 `vite/client.d.ts` 类型文件，无需在 tsconfig.json 中指定
 - 启动 vite 服务时默认打开浏览器
-- css-modules 在开发模式下显示具体文件和类名，在打包时则使用哈希值
 - 打包后的资源按照后缀放置到不同的文件夹
+- 配置 `server.https=true` 时，使用 **SSL** 插件自动生成证书
+- css-modules 在开发模式下显示具体文件和类名，在打包时则使用哈希值
 
 # react
 
