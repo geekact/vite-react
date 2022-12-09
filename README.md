@@ -26,7 +26,6 @@ pnpm add vite vite-react -D
 -   "sass": "*",
     "vite": "*",
 -   "vite-plugin-html": "*",
--   "vite-plugin-restart": "*",
 -   "vite-plugin-style-import": "*",
 +   "vite-react": "*"
     ...
@@ -55,13 +54,12 @@ pnpm add vite vite-react -D
 - import react from '@vitejs/plugin-react';
 - import { createHtmlPlugin } from 'vite-plugin-html';
 - import { createStyleImportPlugin } from 'vite-plugin-style-import';
-- import VitePluginRestart from 'vite-plugin-restart';
 + import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
 - plugins: [
--   react(), legacy(), createHtmlPlugin(), createStyleImportPlugin(), VitePluginRestart()
+-   react(), legacy(), createHtmlPlugin(), createStyleImportPlugin()
 - ],
 + react: {},
 + legacy: {},
@@ -118,26 +116,6 @@ import 'antd/es/table/style/index';
 ```
 
 对于更多样式设置，请参考官方文档 [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html#useroptions)
-
-# startOver
-
-指定文件变化时**重启 vite 服务**或者**全量刷新页面**，和`nodemon`说拜拜。官方仓库 [vite-plugin-restart](https://github.com/antfu/vite-plugin-restart) 文档不全，所以在这里详细介绍。
-
-### startOver.restart [string | Array<string>]
-
-给定文件变化时，重启 vite 服务，比如 `['my.config.[jt]s']`
-
-### startOver.reload [string | Array<string>]
-
-给定文件变化时，刷新页面，比如 `['my.config.[jt]s']`
-
-### startOver.delay [number=500]
-
-延时生效的毫秒数
-
-### startOver.glob [bool=true]
-
-restart|reload 列举的文件是否允许使用匹配符号
 
 # 温馨提示
 
