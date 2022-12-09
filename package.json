@@ -1,15 +1,14 @@
 {
   "name": "vite-react",
-  "version": "0.11.0",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "version": "0.12.1",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js"
     },
     "./package.json": "./package.json"
   },
