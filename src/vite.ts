@@ -6,14 +6,12 @@ import { handleLegacy, OverrideLegacy } from './handler/legacy';
 import { handleMix, OverrideMix } from './handler/mix';
 import { handleReact, OverrideReact } from './handler/react';
 import { handleServer } from './handler/server';
-import { handleStyleImport, OverrideStyleImport } from './handler/styleImport';
 
 export interface Config
   extends OverrideMix,
     OverrideReact,
     OverrideLegacy,
     OverrideHtml,
-    OverrideStyleImport,
     Omit<UserConfig, 'legacy'> {}
 
 export type ConfigFn = (env: ConfigEnv) => Config;
@@ -31,8 +29,6 @@ const parseConfig = (config: Config, env: ConfigEnv): Omit<Config, 'legacy'> => 
   handleLegacy(config);
   delete config.legacy;
   handleCss(config, env);
-  handleStyleImport(config);
-  delete config.styleImport;
   handleBuild(config);
   handleMix(config);
   handleServer(config);

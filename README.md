@@ -26,7 +26,6 @@ pnpm add vite vite-react -D
 -   "sass": "*",
     "vite": "*",
 -   "vite-plugin-html": "*",
--   "vite-plugin-style-import": "*",
 +   "vite-react": "*"
     ...
   },
@@ -53,18 +52,16 @@ pnpm add vite vite-react -D
 - import legacy from '@vitejs/plugin-legacy';
 - import react from '@vitejs/plugin-react';
 - import { createHtmlPlugin } from 'vite-plugin-html';
-- import { createStyleImportPlugin } from 'vite-plugin-style-import';
 + import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
 - plugins: [
--   react(), legacy(), createHtmlPlugin(), createStyleImportPlugin()
+-   react(), legacy(), createHtmlPlugin()
 - ],
 + react: {},
 + legacy: {},
 + html: {},
-+ styleImport: {},
   ...
 });
 ```
@@ -87,34 +84,6 @@ React 项目基础插件。具体配置请查看官方文档 [@vitejs/plugin-rea
 # html
 
 对 html 文件的动态处理。请查看官方文档 [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html#useroptions)
-
-# styleImport
-
-按需加载 UI 库的样式，最常见的 reactUI 框架是`antd`，你可以这么做：
-
-```typescript
-import { defineConfig } from 'vite-react';
-
-export default defineConfig({
-  styleImport: {
-    resolves: ['antd'],
-  },
-});
-```
-
-按需加载的转译方式如下所示：
-
-```typescript
-// 源代码
-import { Button, Table } from 'antd';
-
-// 转译后的代码
-import { Button, Table } from 'antd';
-import 'antd/es/button/style/index';
-import 'antd/es/table/style/index';
-```
-
-对于更多样式设置，请参考官方文档 [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html#useroptions)
 
 # 温馨提示
 
