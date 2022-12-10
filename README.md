@@ -1,6 +1,11 @@
 # vite-react
 
-基于 [Vite](https://github.com/vitejs/vite) 工具的 react 专属版本
+基于 [Vite](https://github.com/vitejs/vite) 工具的 react 专属配置
+
+[![npm peer dependency vite version](https://img.shields.io/npm/dependency-version/vite-react/peer/vite?logo=vite)](https://github.com/vitejs/vite)
+[![npm](https://img.shields.io/npm/v/vite-react?logo=npm)](https://www.npmjs.com/package/vite-react)
+[![License](https://img.shields.io/github/license/geekact/vite-react?logo=open-source-initiative)](https://github.com/geekact/vite-react/blob/master/LICENSE)
+[![Code Style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier)](https://github.com/prettier/prettier)
 
 # 安装
 
