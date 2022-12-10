@@ -26,6 +26,7 @@ pnpm add vite vite-react -D
 -   "sass": "*",
     "vite": "*",
 -   "vite-plugin-html": "*",
+-   "vite-tsconfig-paths": "*",
 +   "vite-react": "*"
     ...
   },
@@ -52,12 +53,13 @@ pnpm add vite vite-react -D
 - import legacy from '@vitejs/plugin-legacy';
 - import react from '@vitejs/plugin-react';
 - import { createHtmlPlugin } from 'vite-plugin-html';
+- import alias from 'vite-tsconfig-paths';
 + import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
 - plugins: [
--   react(), legacy(), createHtmlPlugin()
+-   react(), legacy(), createHtmlPlugin(), alias(),
 - ],
 + react: {},
 + legacy: {},
@@ -73,6 +75,7 @@ export default defineConfig({
 - 启动 vite 服务时默认打开浏览器
 - 打包后的资源按照后缀放置到不同的文件夹
 - 配置 `server.https=true` 时，使用 **SSL** 插件自动生成证书
+- 未配置 `resolve.alias` 时，使用 `vite-tsconfig-paths` 插件自动识别路径别名
 - css-modules 在开发模式下显示具体文件和类名，在打包时则使用哈希值
 
 # react

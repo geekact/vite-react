@@ -1,4 +1,5 @@
 import { ConfigEnv, defineConfig as origin, UserConfig, UserConfigExport } from 'vite';
+import { handleAlias } from './handler/alias';
 import { handleBuild } from './handler/build';
 import { handleCss } from './handler/css';
 import { handleHtml, OverrideHtml } from './handler/html';
@@ -34,6 +35,7 @@ const parseConfig = (config: Config, env: ConfigEnv): Omit<Config, 'legacy'> => 
   handleServer(config);
   handleHtml(config, env);
   delete config.html;
+  handleAlias(config);
 
   return config;
 };
