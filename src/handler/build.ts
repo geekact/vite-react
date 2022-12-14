@@ -11,8 +11,6 @@ const assetPatterns = <const>[
 
 export const handleBuild = (config: Config) => {
   config.build ||= {};
-  // Unnecessary to show this and improve build speed.
-  config.build.reportCompressedSize ??= false;
 
   config.build.rollupOptions ||= {};
   config.build.rollupOptions.output ||= {};
