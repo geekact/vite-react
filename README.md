@@ -82,9 +82,9 @@ export default defineConfig({
 
 # react
 
-React 项目基础插件。
+React 项目基础插件，自动引入配置。
 
-默认使用 [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)，其在开发环境使用 swc 替换 babel，速度会快好几倍。如果要使用基于 babel 的 [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react)，则可以这么配置
+默认使用[@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)插件，其在开发环境使用 swc 替换 babel，速度会快好几倍。如果要使用基于 babel 的[@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react)，则可以这么配置：
 
 ```typescript
 export default defineConfig({
@@ -96,20 +96,46 @@ export default defineConfig({
 
 # legacy
 
-使用官方 [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy#options) 插件兼容不支持 `<script type="module">` 标签引入 JS 文件的浏览器。
+使用官方 [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) 插件兼容不支持 `<script type="module">` 标签引入 JS 文件的浏览器。
 
 列举主流浏览器的支持情况：
 
 | 浏览器   | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png" alt="IE" width="24px" height="24px" /><br/>IE | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" /><br/>Edge | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" /><br/>Chrome | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /><br/>Firefox | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" /><br/>Safari | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" /><br/>Opera |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-|          | ❌                                                                                                                                                                                        | 16+                                                                                                                                               | 61+                                                                                                                                                       | 60+                                                                                                                                                           | 10.1+                                                                                                                                                     | 48+                                                                                                                                                   |
-| 发布时间 | ❌                                                                                                                                                                                        | 2017-10-17                                                                                                                                        | 2017-09-05                                                                                                                                                | 2018-05-09                                                                                                                                                    | 2017-05-27                                                                                                                                                | 2017-09-27                                                                                                                                            |
+| 开始版本 | ❌                                                                                                                                                                                        | 16                                                                                                                                                | 61                                                                                                                                                        | 60                                                                                                                                                            | 10.1                                                                                                                                                      | 48                                                                                                                                                    |
+| 发布时间 | ❌                                                                                                                                                                                        | 2017.10.17                                                                                                                                        | 2017.09.05                                                                                                                                                | 2018.05.09                                                                                                                                                    | 2017.05.27                                                                                                                                                | 2017.09.27                                                                                                                                            |
 
 更多浏览器以及手机浏览器兼容性可参考 https://caniuse.com/es6-module
+
+开启 legacy 方式：
+
+```typescript
+export default defineConfig({
+  legacy: true,
+});
+```
+
+当然也可以配置一些参数。具体配置请参考 [官方文档](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy#options)
+
+```typescript
+export default defineConfig({
+  legacy: {
+    targets: ['chrome >= 50', 'not dead'],
+  },
+});
+```
 
 # html
 
 对 html 文件进行打包、压缩、传值、实现多页面等处理。请查看官方文档 [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html#useroptions)
+
+```typescript
+export default defineConfig({
+  html: {
+    // ...
+  },
+});
+```
 
 # 温馨提示
 
