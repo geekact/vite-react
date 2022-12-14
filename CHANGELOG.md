@@ -1,3 +1,9 @@
+## [2.2.0](https://github.com/geekact/vite-react/compare/v2.1.0...v2.2.0)&nbsp;&nbsp;(2022-12-14)
+
+- 可通过设置 `server.watchExtend` 自定义监听文件以重启服务
+- 取消 `build.reportCompressedSize` 配置，不再阻止展示 gzip 大小
+- 完善 css-modules 在开发环境下的名称
+
 ## [2.1.0](https://github.com/geekact/vite-react/compare/v2.0.0...v2.1.0)&nbsp;&nbsp;(2022-12-14)
 
 - 重新支持 commonjs
