@@ -82,7 +82,17 @@ export default defineConfig({
 
 # react
 
-React 项目基础插件。具体配置请查看官方文档 [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react)
+React 项目基础插件。
+
+默认使用 [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)，其在开发环境使用 swc 替换 babel，速度会快好几倍。如果要使用基于 babel 的 [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react)，则可以这么配置
+
+```typescript
+export default defineConfig({
+  react: {
+    swc: false,
+  },
+});
+```
 
 # legacy
 
