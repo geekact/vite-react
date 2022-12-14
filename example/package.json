@@ -1,0 +1,19 @@
+{
+  "name": "vite-react-example",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "vite serve",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "vite": "^4.0.1",
+    "vite-react": "../"
+  }
+}

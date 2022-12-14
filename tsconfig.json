@@ -9,7 +9,7 @@
     "outDir": "./build",
     "importHelpers": false,
     "downlevelIteration": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
