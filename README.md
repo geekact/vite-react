@@ -31,6 +31,7 @@ pnpm add vite vite-react -D
 -   "sass": "*",
     "vite": "*",
 -   "vite-plugin-html": "*",
+-   "vite-plugin-restart": "*",
 +   "vite-react": "*"
     ...
   },
@@ -57,16 +58,23 @@ pnpm add vite vite-react -D
 - import legacy from '@vitejs/plugin-legacy';
 - import react from '@vitejs/plugin-react';
 - import { createHtmlPlugin } from 'vite-plugin-html';
+- import restart from 'vite-plugin-restart';
 + import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
 - plugins: [
--   react(), legacy(), createHtmlPlugin()
+-   react(),
+-   legacy(),
+-   createHtmlPlugin(),
+-   restart(),
 - ],
 + react: {},
 + legacy: {},
 + html: {},
+  server: {
++   watchExtend: {}
+  },
   ...
 });
 ```
@@ -137,8 +145,22 @@ export default defineConfig({
 });
 ```
 
+# server.watchExtend
+
+使用插件 [vite-plugin-restart](https://github.com/antfu/vite-plugin-restart) 额外监听文件变化，可重启 vite 服务或者刷新页面。仅在执行 `vite serve` 时生效。
+
+```typescript
+export default defineConfig({
+  server: {
+    watchExtend: {
+      restart: [], // 重启服务
+      reload: [], // 刷新页面
+    },
+  },
+});
+```
+
 # 温馨提示
 
 - 使用 css-modules 时，建议安装 vscode 插件 `clinyong.vscode-css-modules` 以获得更多提示
-- 尽量使用 `lodash-es` 代替 ~~`lodash`~~ 以获得 tree-shaking 优化
-- 对于 vite 无法识别的文件后缀，在路径后面增加 `?url` 或者 `?raw`。比如：`import mydata from '../xx.pdf?url`
+- 尽量使用 `lodash-es` 代替 `lodash` 以获得 tree-shaking 优化
