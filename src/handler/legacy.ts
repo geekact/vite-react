@@ -3,7 +3,7 @@ import { Config } from '../vite';
 
 export interface OverrideLegacy {
   /**
-   * For browsers which doesn't support es module by use @vitejs/plugin-legacy.
+   * 兼容不支持 type=module 的浏览器
    * @see https://caniuse.com/es6-module
    */
   legacy?: true | Parameters<typeof legacy>[0];

@@ -96,11 +96,20 @@ export default defineConfig({
 
 # legacy
 
-兼容不支持 ES 模块的浏览器。请查看官方文档 [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy#options)
+使用官方 [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy#options) 插件兼容不支持 `<script type="module">` 标签引入 JS 文件的浏览器。
+
+列举主流浏览器的支持情况：
+
+| 浏览器   | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png" alt="IE" width="24px" height="24px" /><br/>IE | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" /><br/>Edge | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" /><br/>Chrome | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /><br/>Firefox | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" /><br/>Safari | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" /><br/>Opera |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+|          | ❌                                                                                                                                                                                        | 16+                                                                                                                                               | 61+                                                                                                                                                       | 60+                                                                                                                                                           | 10.1+                                                                                                                                                     | 48+                                                                                                                                                   |
+| 发布时间 | ❌                                                                                                                                                                                        | 2017-10-17                                                                                                                                        | 2017-09-05                                                                                                                                                | 2018-05-09                                                                                                                                                    | 2017-05-27                                                                                                                                                | 2017-09-27                                                                                                                                            |
+
+更多浏览器以及手机浏览器兼容性可参考 https://caniuse.com/es6-module
 
 # html
 
-对 html 文件的动态处理。请查看官方文档 [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html#useroptions)
+对 html 文件进行打包、压缩、传值、实现多页面等处理。请查看官方文档 [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html#useroptions)
 
 # 温馨提示
 
