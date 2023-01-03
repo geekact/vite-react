@@ -41,7 +41,8 @@
     "sass": "^1.56.2",
     "terser": "^5.16.1",
     "vite-plugin-html": "^3.2.0",
-    "vite-plugin-restart": "^0.3.0"
+    "vite-plugin-restart": "^0.3.0",
+    "vite-tsconfig-paths": "^4.0.3"
   },
   "devDependencies": {
     "@types/node": "^18.11.12",

@@ -32,6 +32,7 @@ pnpm add vite vite-react -D
     "vite": "*",
 -   "vite-plugin-html": "*",
 -   "vite-plugin-restart": "*",
+-   "vite-tsconfig-paths": "*",
 +   "vite-react": "*"
     ...
   },
@@ -59,6 +60,7 @@ pnpm add vite vite-react -D
 - import react from '@vitejs/plugin-react';
 - import { createHtmlPlugin } from 'vite-plugin-html';
 - import restart from 'vite-plugin-restart';
+- import tsconfigPaths from 'vite-tsconfig-paths';
 + import { defineConfig } from 'vite-react';
 
 export default defineConfig({
@@ -68,12 +70,16 @@ export default defineConfig({
 -   legacy(),
 -   createHtmlPlugin(),
 -   restart(),
+-   tsconfigPaths(),
 - ],
 + react: {},
 + legacy: {},
 + html: {},
   server: {
 +   watchExtend: {}
+  },
+  resolve: {
++   aliasFromTsconfig: true | false | {}
   },
   ...
 });
@@ -83,6 +89,7 @@ export default defineConfig({
 
 - 自动使用 react 插件
 - 自动引入 `vite/client.d.ts` 类型文件，无需在 tsconfig.json 中指定
+- 自动识别在 `tsconfig.json` 中设置的路径别名
 - 启动 vite 服务时默认打开浏览器
 - 打包后的资源按照后缀放置到不同的文件夹
 - 配置 `server.https=true` 时，使用 **SSL** 插件自动生成证书
@@ -156,6 +163,20 @@ export default defineConfig({
       restart: [], // 重启服务
       reload: [], // 刷新页面
     },
+  },
+});
+```
+
+# resolve.aliasFromTsconfig
+
+默认值：`true`
+
+使用插件 [vite-tsconfig-paths](https://github.com/aleclarson/vite-tsconfig-paths) 自动识别`tsconfig.json`配置中设置的路径别名，省去了重复配置别名的麻烦。
+
+```typescript
+export default defineConfig({
+  resolve: {
+    aliasFromTsconfig: true | false | {...},
   },
 });
 ```

@@ -5,9 +5,10 @@ import { handleHtml, OverrideHtml } from './handler/html';
 import { handleLegacy, OverrideLegacy } from './handler/legacy';
 import { handleMix, OverrideMix } from './handler/mix';
 import { handleReact, OverrideReact } from './handler/react';
+import { handleResolve, OverrideResolve } from './handler/resolve';
 import { handleServer, OverrideServer } from './handler/server';
 
-type OverrideKeys = 'legacy' | 'server';
+type OverrideKeys = 'legacy' | 'server' | 'resolve';
 
 export interface Config
   extends OverrideMix,
@@ -15,6 +16,7 @@ export interface Config
     OverrideLegacy,
     OverrideHtml,
     OverrideServer,
+    OverrideResolve,
     Omit<UserConfig, OverrideKeys> {}
 
 export type ConfigFn = (env: ConfigEnv) => Config;
@@ -38,6 +40,8 @@ const parseConfig = (config: Config, env: ConfigEnv): Omit<Config, OverrideKeys>
   delete config.server?.watchExtend;
   handleHtml(config, env);
   delete config.html;
+  handleResolve(config);
+  delete config.resolve?.aliasFromTsconfig;
 
   return config;
 };
