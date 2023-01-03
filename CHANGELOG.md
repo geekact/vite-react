@@ -1,3 +1,7 @@
+## [2.3.0](https://github.com/geekact/vite-react/compare/v2.2.0...v2.3.0)&nbsp;&nbsp;(2023-01-03)
+
+- 自动识别来自 `tsconfig.json` 配置的路径别名
+
 ## [2.2.0](https://github.com/geekact/vite-react/compare/v2.1.0...v2.2.0)&nbsp;&nbsp;(2022-12-14)
 
 - 可通过设置 `server.watchExtend` 自定义监听文件以重启服务
