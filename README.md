@@ -30,9 +30,6 @@ pnpm add vite vite-react -D
 -   "less": "*",
 -   "sass": "*",
     "vite": "*",
--   "vite-plugin-html": "*",
--   "vite-plugin-restart": "*",
--   "vite-tsconfig-paths": "*",
 +   "vite-react": "*"
     ...
   },
@@ -56,30 +53,19 @@ pnpm add vite vite-react -D
 
 ```diff
 - import { defineConfig } from 'vite';
-- import legacy from '@vitejs/plugin-legacy';
-- import react from '@vitejs/plugin-react';
-- import { createHtmlPlugin } from 'vite-plugin-html';
-- import restart from 'vite-plugin-restart';
-- import tsconfigPaths from 'vite-tsconfig-paths';
 + import { defineConfig } from 'vite-react';
 
 export default defineConfig({
   ...
-- plugins: [
--   react(),
--   legacy(),
--   createHtmlPlugin(),
--   restart(),
--   tsconfigPaths(),
-- ],
 + react: {},
-+ legacy: {},
++ legacy: true | {},
 + html: {},
   server: {
-+   watchExtend: {}
++   watchExtend: {},
++   qrcode: boolean | {}
   },
   resolve: {
-+   aliasFromTsconfig: true | false | {}
++   aliasFromTsconfig: boolean | {}
   },
   ...
 });
@@ -88,6 +74,7 @@ export default defineConfig({
 # 最佳实践
 
 - 自动使用 react 插件
+- 内置 sass 和 less 预处理器
 - 自动引入 `vite/client.d.ts` 类型文件，无需在 tsconfig.json 中指定
 - 自动识别在 `tsconfig.json` 中设置的路径别名
 - 启动 vite 服务时默认打开浏览器
@@ -111,6 +98,8 @@ export default defineConfig({
 ```
 
 # legacy
+
+默认值：`false`
 
 使用官方 [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) 插件兼容不支持 `<script type="module">` 标签引入 JS 文件的浏览器。
 
