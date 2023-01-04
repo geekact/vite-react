@@ -1,3 +1,7 @@
+## [2.4.0](https://github.com/geekact/vite-react/compare/v2.3.0...v2.4.0)&nbsp;&nbsp;(2023-01-04)
+
+- 在终端生成链接二维码
+
 ## [2.3.0](https://github.com/geekact/vite-react/compare/v2.2.0...v2.3.0)&nbsp;&nbsp;(2023-01-03)
 
 - 自动识别来自 `tsconfig.json` 配置的路径别名
