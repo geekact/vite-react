@@ -36,8 +36,9 @@ const parseConfig = (config: Config, env: ConfigEnv): Omit<Config, OverrideKeys>
   handleCss(config, env);
   handleBuild(config);
   handleMix(config);
-  handleServer(config, env);
+  handleServer(config);
   delete config.server?.watchExtend;
+  delete config.server?.qrcode;
   handleHtml(config, env);
   delete config.html;
   handleResolve(config);

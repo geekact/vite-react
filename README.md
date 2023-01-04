@@ -94,6 +94,7 @@ export default defineConfig({
 - 打包后的资源按照后缀放置到不同的文件夹
 - 配置 `server.https=true` 时，使用 **SSL** 插件自动生成证书
 - css-modules 在开发模式下显示具体文件和类名，在打包时则使用哈希值
+- 在指定 `host` 时显示链接二维码以便在手机上快速扫描访问
 
 # react
 
@@ -154,7 +155,7 @@ export default defineConfig({
 
 # server.watchExtend
 
-使用插件 [vite-plugin-restart](https://github.com/antfu/vite-plugin-restart) 额外监听文件变化，可重启 vite 服务或者刷新页面。仅在执行 `vite serve` 时生效。
+使用插件 [vite-plugin-restart](https://github.com/antfu/vite-plugin-restart) 额外监听文件变化，可重启 vite 服务或者刷新页面。
 
 ```typescript
 export default defineConfig({
@@ -163,6 +164,20 @@ export default defineConfig({
       restart: [], // 重启服务
       reload: [], // 刷新页面
     },
+  },
+});
+```
+
+# server.qrcode
+
+默认值：`true`
+
+在开发时使用了 `host` 时，使用插件 [vite-plugin-qrcode](https://github.com/svitejs/vite-plugin-qrcode) 在终端生成二维码，方便手机立即扫码访问。
+
+```typescript
+export default defineConfig({
+  server: {
+    qrcode: true | false | {},
   },
 });
 ```
@@ -176,7 +191,7 @@ export default defineConfig({
 ```typescript
 export default defineConfig({
   resolve: {
-    aliasFromTsconfig: true | false | {...},
+    aliasFromTsconfig: true | false | {},
   },
 });
 ```
