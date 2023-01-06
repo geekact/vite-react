@@ -59,7 +59,7 @@ export default defineConfig({
   ...
 + react: {},
 + legacy: true | {},
-+ html: {},
++ html: false | {},
   server: {
 +   watchExtend: {},
 +   qrcode: boolean | {}

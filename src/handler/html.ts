@@ -3,15 +3,14 @@ import { createHtmlPlugin } from 'vite-plugin-html';
 import { Config } from '../vite';
 
 export interface OverrideHtml {
-  html?: Parameters<typeof createHtmlPlugin>[0];
+  html?: false | Parameters<typeof createHtmlPlugin>[0];
 }
 
 export const handleHtml = (config: Config, env: ConfigEnv) => {
-  if (!config.html) return;
+  if (config.html === false) return;
 
-  const html = config.html;
-  html.minify ??= env.command === 'build';
-
+  config.html ||= {};
+  config.html.minify ??= env.command === 'build';
   config.plugins ||= [];
-  config.plugins.push(createHtmlPlugin(html));
+  config.plugins.push(createHtmlPlugin(config.html));
 };
