@@ -6,12 +6,11 @@ const assetPatterns = <const>[
   ['media', /\.(mp4|webm|ogg|mp3|wav|flac|aac|swf)(\?.*)?$/i],
   ['image', /\.(png|jpe?g|gif|ico|svg|webp)(\?.*)?$/i],
   ['font', /\.(woff2?|eot|ttf|otf)(\?.*)?$/i],
-  ['style', /\.(s?css|less|styl)(\?.*)?$/i],
+  ['css', /\.(s?css|less|styl)(\?.*)?$/i],
 ];
 
 export const handleBuild = (config: Config) => {
   config.build ||= {};
-
   config.build.rollupOptions ||= {};
   config.build.rollupOptions.output ||= {};
 
@@ -28,19 +27,19 @@ export const handleBuild = (config: Config) => {
       ...config.build.rollupOptions.output,
       assetFileNames(assetInfo) {
         const ext = extname(assetInfo.name || '');
-        let folder = 'misc';
+        let prefix = 'misc';
 
         for (const [name, pattern] of assetPatterns) {
           if (pattern.test(ext)) {
-            folder = name;
+            prefix = name;
             break;
           }
         }
 
-        return `${folder}/[name]-[hash][extname]`;
+        return `${prefix}/[name].[hash][extname]`;
       },
-      chunkFileNames: 'js/chunk-[name]-[hash].js',
-      entryFileNames: 'js/entry-[name]-[hash].js',
+      chunkFileNames: 'js/[name].[hash].js',
+      entryFileNames: 'js/entry-[name].[hash].js',
     };
   }
 };
