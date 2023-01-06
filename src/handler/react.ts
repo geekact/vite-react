@@ -1,25 +1,28 @@
-import react, { Options as ReactOptions } from '@vitejs/plugin-react';
+import reactBabel, { Options as ReactBabelOptions } from '@vitejs/plugin-react';
 import reactSWC from '@vitejs/plugin-react-swc';
 import { Config } from '../vite';
 
 export interface OverrideReact {
   /**
-   *  默认使用插件 @vitejs/plugin-react-swc，如果要使用兼容性更强的 @vitejs/plugin-react，则设置 swc=false
+   * 默认使用插件 [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) 提升编译速度。
+   *
+   * 如果要使用兼容性更强的 [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react)，则设置 `swc=false`
    */
-  react?:
-    | (ReactOptions & { swc: false })
-    | {
-        swc?: true;
-      };
+  react?: (ReactBabelOptions & { swc: false }) | (Parameters<typeof reactSWC>[0] & { swc?: true });
 }
 
 export const handleReact = (config: Config) => {
   config.plugins ||= [];
-  const { swc, ...reactOptions } = config.react || {};
+  config.react ||= {};
 
-  if (swc !== false) {
-    config.plugins.push(reactSWC());
+  if (config.react.swc !== false) {
+    config.plugins.push(reactSWC(omit(config.react)));
   } else {
-    config.plugins.push(react(reactOptions));
+    config.plugins.push(reactBabel(omit(config.react)));
   }
+};
+
+const omit = <T>(config: T & { swc?: boolean }): Omit<T, 'swc'> => {
+  delete config.swc;
+  return config;
 };
