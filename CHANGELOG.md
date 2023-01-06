@@ -1,3 +1,9 @@
+## [2.4.1](https://github.com/geekact/vite-react/compare/v2.4.0...v2.4.1)&nbsp;&nbsp;(2023-01-06)
+
+- react-swc 支持传递更多选项
+- 修复 html 未配置时插件不启用的问题
+- 更新打包文件名
+
 ## [2.4.0](https://github.com/geekact/vite-react/compare/v2.3.0...v2.4.0)&nbsp;&nbsp;(2023-01-04)
 
 - 在终端生成链接二维码
