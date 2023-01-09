@@ -1,4 +1,5 @@
 import tsconfigPaths, { PluginOptions } from 'vite-tsconfig-paths';
+import restart from 'vite-plugin-restart';
 import { UserConfig } from 'vite';
 import { Config } from '../vite';
 
@@ -18,6 +19,9 @@ export const handleResolve = (config: Config) => {
 
   if (aliasFromTsconfig) {
     config.plugins ||= [];
-    config.plugins.push(tsconfigPaths(aliasFromTsconfig === true ? void 0 : aliasFromTsconfig));
+    config.plugins.push(
+      tsconfigPaths(aliasFromTsconfig === true ? void 0 : aliasFromTsconfig),
+      restart({ restart: ['**/tsconfig.json'], glob: true }),
+    );
   }
 };

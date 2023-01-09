@@ -11,8 +11,5 @@ export default defineConfig({
   },
   server: {
     https: true,
-    watchExtend: {
-      restart: ['../tsconfig.json'],
-    },
   },
 });
