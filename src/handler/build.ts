@@ -11,6 +11,7 @@ const assetPatterns = <const>[
 
 export const handleBuild = (config: Config) => {
   config.build ||= {};
+  config.build.chunkSizeWarningLimit = 800;
   config.build.rollupOptions ||= {};
   config.build.rollupOptions.output ||= {};
 
