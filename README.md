@@ -71,9 +71,9 @@ export default defineConfig({
 });
 ```
 
-# 最佳实践
+# 特性
 
-- 自动使用 react 插件
+- 自动使用 react/react-swc 插件
 - 内置 sass 和 less 预处理器
 - 自动引入 `vite/client.d.ts` 类型文件，无需在 tsconfig.json 中指定
 - 自动识别在 `tsconfig.json` 中设置的路径别名
@@ -82,8 +82,11 @@ export default defineConfig({
 - 配置 `server.https=true` 时，使用 **SSL** 插件自动生成证书
 - css-modules 在开发模式下显示具体文件和类名，在打包时则使用哈希值
 - 在指定 `host` 时显示链接二维码以便在手机上快速扫描访问
+- .html 文件在 build 模式自动压缩
 
-# react
+# 配置
+
+## react
 
 React 项目基础插件，自动引入配置。
 
@@ -97,7 +100,7 @@ export default defineConfig({
 });
 ```
 
-# legacy
+## legacy
 
 默认值：`false`
 
@@ -130,7 +133,7 @@ export default defineConfig({
 });
 ```
 
-# html
+## html
 
 对 html 文件进行打包、压缩、传值、实现多页面等处理。请查看官方文档 [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html#useroptions)
 
@@ -142,7 +145,7 @@ export default defineConfig({
 });
 ```
 
-# server.watchExtend
+## server.watchExtend
 
 使用插件 [vite-plugin-restart](https://github.com/antfu/vite-plugin-restart) 额外监听文件变化，可重启 vite 服务或者刷新页面。
 
@@ -157,7 +160,7 @@ export default defineConfig({
 });
 ```
 
-# server.qrcode
+## server.qrcode
 
 默认值：`true`
 
@@ -171,7 +174,7 @@ export default defineConfig({
 });
 ```
 
-# resolve.aliasFromTsconfig
+## resolve.aliasFromTsconfig
 
 默认值：`true`
 
