@@ -8,7 +8,7 @@ export default defineConfig({
   format: ['esm', 'cjs'],
   platform: 'node',
   tsconfig: './tsconfig.json',
-  target: 'node16',
+  target: 'node14',
   shims: false,
   dts: true,
 });
