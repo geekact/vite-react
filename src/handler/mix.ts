@@ -1,4 +1,4 @@
-import { Config } from '../vite';
+import type { Config } from '../vite';
 
 export interface OverrideMix {
   /**

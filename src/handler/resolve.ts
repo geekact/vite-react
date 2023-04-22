@@ -1,7 +1,7 @@
-import tsconfigPaths, { PluginOptions } from 'vite-tsconfig-paths';
+import tsconfigPaths, { type PluginOptions } from 'vite-tsconfig-paths';
 import restart from 'vite-plugin-restart';
-import { UserConfig } from 'vite';
-import { Config } from '../vite';
+import type { UserConfig } from 'vite';
+import type { Config } from '../vite';
 
 export interface OverrideResolve {
   resolve?: UserConfig['resolve'] & {

@@ -1,6 +1,6 @@
 import { extname } from 'path';
-import { OutputOptions } from 'rollup';
-import { Config } from '../vite';
+import type { OutputOptions } from 'rollup';
+import type { Config } from '../vite';
 
 const assetPatterns = <const>[
   ['media', /\.(mp4|webm|ogg|mp3|wav|flac|aac|swf)(\?.*)?$/i],

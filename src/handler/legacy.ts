@@ -1,5 +1,5 @@
 import legacy from '@vitejs/plugin-legacy';
-import { Config } from '../vite';
+import type { Config } from '../vite';
 
 export interface OverrideLegacy {
   /**

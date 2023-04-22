@@ -1,5 +1,5 @@
-import { ConfigEnv } from 'vite';
-import { Config } from '../vite';
+import type { ConfigEnv } from 'vite';
+import type { Config } from '../vite';
 
 export const handleCss = (config: Config, env: ConfigEnv) => {
   config.css ||= {};

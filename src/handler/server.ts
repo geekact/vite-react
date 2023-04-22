@@ -1,8 +1,8 @@
 import restart from 'vite-plugin-restart';
 import ssl from '@vitejs/plugin-basic-ssl';
-import { qrcode as qrcodePlugin, PluginOptions as QrcodeOptions } from 'vite-plugin-qrcode';
-import { UserConfig } from 'vite';
-import { Config } from '../vite';
+import { qrcode as qrcodePlugin, type PluginOptions as QrcodeOptions } from 'vite-plugin-qrcode';
+import type { UserConfig } from 'vite';
+import type { Config } from '../vite';
 
 export interface OverrideServer {
   server?: UserConfig['server'] & {

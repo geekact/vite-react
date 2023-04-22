@@ -1,6 +1,6 @@
-import { ConfigEnv } from 'vite';
+import type { ConfigEnv } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
-import { Config } from '../vite';
+import type { Config } from '../vite';
 
 export interface OverrideHtml {
   html?: false | Parameters<typeof createHtmlPlugin>[0];

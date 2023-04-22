@@ -1,6 +1,6 @@
-import reactBabel, { Options as ReactBabelOptions } from '@vitejs/plugin-react';
+import reactBabel, { type Options as ReactBabelOptions } from '@vitejs/plugin-react';
 import reactSWC from '@vitejs/plugin-react-swc';
-import { Config } from '../vite';
+import type { Config } from '../vite';
 
 export interface OverrideReact {
   /**

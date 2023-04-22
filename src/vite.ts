@@ -1,12 +1,17 @@
-import { ConfigEnv, defineConfig as origin, UserConfig, UserConfigExport } from 'vite';
+import {
+  type ConfigEnv,
+  defineConfig as origin,
+  type UserConfig,
+  type UserConfigExport,
+} from 'vite';
 import { handleBuild } from './handler/build';
 import { handleCss } from './handler/css';
-import { handleHtml, OverrideHtml } from './handler/html';
-import { handleLegacy, OverrideLegacy } from './handler/legacy';
-import { handleMix, OverrideMix } from './handler/mix';
-import { handleReact, OverrideReact } from './handler/react';
-import { handleResolve, OverrideResolve } from './handler/resolve';
-import { handleServer, OverrideServer } from './handler/server';
+import { handleHtml, type OverrideHtml } from './handler/html';
+import { handleLegacy, type OverrideLegacy } from './handler/legacy';
+import { handleMix, type OverrideMix } from './handler/mix';
+import { handleReact, type OverrideReact } from './handler/react';
+import { handleResolve, type OverrideResolve } from './handler/resolve';
+import { handleServer, type OverrideServer } from './handler/server';
 
 type OverrideKeys = 'legacy' | 'server' | 'resolve';
 
