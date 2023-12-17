@@ -1,7 +1,7 @@
 ## [2.4.2](https://github.com/geekact/vite-react/compare/v2.4.1...v2.4.2)&nbsp;&nbsp;(2023-03-02)
 
 - aliasFromTsconfig 启用时监听tsconfig.json文件
-- 打包后尺寸警告阈值提升到800K 
+- 打包后尺寸警告阈值提升到800K
 - 升级依赖包到最新版本
 
 ## [2.4.1](https://github.com/geekact/vite-react/compare/v2.4.0...v2.4.1)&nbsp;&nbsp;(2023-01-06)

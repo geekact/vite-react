@@ -8,12 +8,12 @@ export interface OverrideServer {
   server?: Omit<ServerOptions, 'https'> & {
     /**
      * 证书配置。
-     * 
+     *
      * 如果设置`true`，则自动生成信任证书，并使用http2访问。
-     * 
+     *
      * 插件：[vite-plugin-mkcert](https://github.com/liuweiGL/vite-plugin-mkcert)
      */
-    https?: true | ServerOptions['https']
+    https?: true | ServerOptions['https'];
     /**
      * vite目前自动重启的条件有：
      * - 修改了 `vite.config.[tj]s` 文件
@@ -42,8 +42,8 @@ export const handleServer = (config: Config) => {
   config.plugins ||= [];
 
   if (config.server.https === true) {
-    config.server.https = undefined
-    config.plugins.push(mkcert({source: 'coding'}));
+    config.server.https = undefined;
+    config.plugins.push(mkcert({ source: 'coding' }));
   }
 
   const { watchExtend } = config.server;
