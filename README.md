@@ -79,7 +79,7 @@ export default defineConfig({
 - 自动识别在 `tsconfig.json` 中设置的路径别名
 - 启动 vite 服务时默认打开浏览器
 - 打包后的资源按照后缀放置到不同的文件夹
-- 配置 `server.https=true` 时，使用 **SSL** 插件自动生成证书
+- 配置 `server.https=true` 时，自动生成信任的SSL证书
 - css-modules 在开发模式下显示具体文件和类名，在打包时则使用哈希值
 - 在指定 `host` 时显示链接二维码以便在手机上快速扫描访问
 - .html 文件在 build 模式自动压缩
@@ -173,6 +173,10 @@ export default defineConfig({
   },
 });
 ```
+
+## server.https
+
+设置成`true`时，使用插件 [vite-plugin-mkcert](https://github.com/liuweiGL/vite-plugin-mkcert) 自动生成信任证书并使用http2访问资源
 
 ## resolve.aliasFromTsconfig
 
