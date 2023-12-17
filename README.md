@@ -10,11 +10,6 @@
 # 安装
 
 ```bash
-# npm
-npm install vite vite-react --save-dev
-# yarn
-yarn add vite vite-react --dev
-# pnpm
 pnpm add vite vite-react -D
 ```
 
@@ -63,6 +58,7 @@ export default defineConfig({
   server: {
 +   watchExtend: {},
 +   qrcode: boolean | {}
++   https: true,
   },
   resolve: {
 +   aliasFromTsconfig: boolean | {}

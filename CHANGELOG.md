@@ -1,3 +1,8 @@
+## [3.0.0](https://github.com/geekact/vite-react/compare/v2.4.2...v3.0.0)&nbsp;&nbsp;(2023-12-17)
+
+- 最小vite版本为5.0
+- 生成的证书是浏览器信任的
+
 ## [2.4.2](https://github.com/geekact/vite-react/compare/v2.4.1...v2.4.2)&nbsp;&nbsp;(2023-03-02)
 
 - aliasFromTsconfig 启用时监听tsconfig.json文件
