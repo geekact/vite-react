@@ -30,25 +30,25 @@
   },
   "dependencies": {
     "@types/html-minifier-terser": "^7.0.2",
-    "@vitejs/plugin-legacy": "^5.2.0",
+    "@vitejs/plugin-legacy": "^5.3.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "@vitejs/plugin-react-swc": "^3.5.0",
+    "@vitejs/plugin-react-swc": "^3.6.0",
     "less": "^4.2.0",
-    "sass": "^1.69.5",
-    "terser": "^5.26.0",
-    "vite-plugin-html": "^3.2.0",
-    "vite-plugin-mkcert": "^1.17.1",
+    "sass": "^1.70.0",
+    "terser": "^5.27.0",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-mkcert": "^1.17.3",
     "vite-plugin-qrcode": "^0.2.3",
     "vite-plugin-restart": "^0.4.0",
-    "vite-tsconfig-paths": "^4.2.2"
+    "vite-tsconfig-paths": "^4.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20.10.4",
-    "prettier": "^3.1.1",
-    "rollup": "^4.9.1",
+    "@types/node": "^18",
+    "prettier": "^3.2.5",
+    "rollup": "^4.9.6",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
-    "vite": "^5.0.10"
+    "vite": "^5.0.12"
   },
   "files": [
     "dist",

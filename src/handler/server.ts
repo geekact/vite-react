@@ -1,4 +1,4 @@
-import restart from 'vite-plugin-restart';
+import restart, { type VitePluginRestartOptions } from 'vite-plugin-restart';
 import mkcert from 'vite-plugin-mkcert';
 import { qrcode as qrcodePlugin, type PluginOptions as QrcodeOptions } from 'vite-plugin-qrcode';
 import type { ServerOptions } from 'vite';
@@ -23,7 +23,7 @@ export interface OverrideServer {
      *
      * 插件：[vite-plugin-restart](https://github.com/antfu/vite-plugin-restart)
      */
-    watchExtend?: Parameters<typeof restart>[0];
+    watchExtend?: VitePluginRestartOptions;
     /**
      * 开发启动时传递`--host`或者配置了`server.host`时，将展示二维码。
      *
