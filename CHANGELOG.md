@@ -1,3 +1,8 @@
+## [4.0.0](https://github.com/geekact/vite-react/compare/v3.0.0...v4.0.0)&nbsp;&nbsp;(2025-06-11)
+
+- 最小vite版本为6.0
+- 只支持ESM模式（配置文件修改为vite.config.mts 或者 package.json 中添加 `type: "module"`）
+
 ## [3.0.0](https://github.com/geekact/vite-react/compare/v2.4.2...v3.0.0)&nbsp;&nbsp;(2023-12-17)
 
 - 最小vite版本为5.0
