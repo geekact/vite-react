@@ -23,7 +23,7 @@
   },
   "packageManager": "pnpm@8.12.1",
   "scripts": {
-    "prepublishOnly": "tsup && echo \"import 'vite/client';\" >> dist/index.d.ts"
+    "prepublishOnly": "tsup && sh ./scripts/insert-vite.sh"
   },
   "peerDependencies": {
     "vite": "^5"
