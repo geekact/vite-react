@@ -13,7 +13,7 @@ import { handleReact, type OverrideReact } from './handler/react';
 import { handleResolve, type OverrideResolve } from './handler/resolve';
 import { handleServer, type OverrideServer } from './handler/server';
 
-type OverrideKeys = 'legacy' | 'server' | 'resolve';
+type OverrideKeys = 'legacy' | 'server' | 'resolve' | 'html';
 
 export interface Config
   extends OverrideMix,
