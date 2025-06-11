@@ -5,10 +5,10 @@ export default defineConfig({
   splitting: true,
   sourcemap: true,
   clean: true,
-  format: ['esm', 'cjs'],
+  format: ['esm'],
   platform: 'node',
   tsconfig: './tsconfig.json',
-  target: 'node14',
+  target: 'node18',
   shims: false,
   dts: true,
 });
