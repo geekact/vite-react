@@ -1,3 +1,7 @@
+## [5.0.0](https://github.com/geekact/vite-react/compare/v4.0.0...v5.0.0)&nbsp;&nbsp;(2025-09-29)
+
+- vite 升级到 v7
+
 ## [4.0.0](https://github.com/geekact/vite-react/compare/v3.0.0...v4.0.0)&nbsp;&nbsp;(2025-06-11)
 
 - 最小vite版本为6.0
