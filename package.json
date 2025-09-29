@@ -16,37 +16,41 @@
   "author": "geekact",
   "license": "MIT",
   "volta": {
-    "node": "18.16.0",
-    "pnpm": "10.12.1"
+    "node": "20.19.0",
+    "pnpm": "10.17.1"
   },
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.17.1",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
+    "build": "tsup && sh ./scripts/insert-vite.sh",
     "prepublishOnly": "tsup && sh ./scripts/insert-vite.sh"
   },
   "peerDependencies": {
-    "vite": "^6"
+    "vite": "^7"
   },
   "dependencies": {
     "@types/html-minifier-terser": "^7.0.2",
-    "@vitejs/plugin-legacy": "^6.1.1",
-    "@vitejs/plugin-react": "^4.5.2",
-    "@vitejs/plugin-react-swc": "^3.10.2",
-    "less": "^4.3.0",
-    "sass": "^1.89.2",
-    "terser": "^5.42.0",
+    "@vitejs/plugin-legacy": "^7.2.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "@vitejs/plugin-react-swc": "^4.1.0",
+    "less": "^4.4.1",
+    "sass": "^1.93.2",
+    "terser": "^5.44.0",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-mkcert": "^1.17.8",
-    "vite-plugin-qrcode": "^0.2.4",
-    "vite-plugin-restart": "^0.4.2",
+    "vite-plugin-qrcode": "^0.3.0",
+    "vite-plugin-restart": "^1.0.0",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
-    "prettier": "^3.5.3",
-    "rollup": "^4.43.0",
+    "@types/node": "^24.5.2",
+    "prettier": "^3.6.2",
+    "rollup": "^4.52.3",
     "tsup": "^8.5.0",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5"
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
   },
   "files": [
     "dist",
